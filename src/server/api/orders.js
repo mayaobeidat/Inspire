@@ -33,7 +33,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    res.send(await getDeleteOrderByUserId(req.params.id));
+    res.send(await DeleteOrderByUserId(req.params.id));
   } catch (err) {
     next(err);
   }
@@ -41,7 +41,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    res.send(await getPostOrderByUserId(req.params.id));
+    res.send(await PostOrderByUserId(req.params.id));
   } catch (err) {
     next(err);
   }
