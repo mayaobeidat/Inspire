@@ -3,9 +3,9 @@ const router = express.Router();
 const { 
     getAllProducts, 
     getProductById,
-    getDeleteProduct,
-    getCreateProduct,
-    getUpdateProduct
+    DeleteProduct,
+    CreateProduct,
+    UpdateProduct
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    res.send(await getDeleteProduct(req.params.id));
+    res.send(await DeleteProduct(req.params.id));
   } catch (err) {
     next(err);
   }
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    res.send(await getCreateProduct(req.params.id));
+    res.send(await CreateProduct(req.params.id));
   } catch (err) {
     next(err);
   }
@@ -42,7 +42,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    res.send(await getUpdateProduct(req.params.id));
+    res.send(await UpdateProduct(req.params.id));
   } catch (err) {
     next(err);
   }
