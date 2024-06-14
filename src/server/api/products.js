@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { 
     getAllProducts, 
-    getProductById 
+    getProductById,
+    deleteProduct,
+    createProduct,
+    updateProduct
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -12,6 +15,7 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+
 router.get("/:id", async (req, res, next) => {
     try {
       res.send(await getProductById(req.params.id));
@@ -19,5 +23,29 @@ router.get("/:id", async (req, res, next) => {
       next(err);
     }
 });
+
+router.delete("/:id", async (req, res, next) => {
+  try {
+    res.send(await deleteProduct(req.params.id));
+  } catch (err) {
+    next(err);
+  }
+})
+
+router.post("/", async (req, res, next) => {
+  try {
+    res.send(await createProduct(req.body));
+  } catch (err) {
+    next(err);
+  }
+})
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    res.send(await updateProduct(req.params.id, req.body));
+  } catch (err) {
+    next(err);
+  }
+})
   
 module.exports = router;

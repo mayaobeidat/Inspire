@@ -9,7 +9,7 @@ client.connect();
 app.use("/api/users", require("./users"));
 app.use("/api/products", require("./products"));
 app.use("/api/orders", require("./orders"));
-// app.use("/api/order_products", require("./order_products"));
+app.use("/api/order_products", require("./order_products"));
 app.use("./auth", authRouter);
 
 app.listen(8080, () => {

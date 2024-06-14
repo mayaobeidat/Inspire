@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 const {
   getAllUsers,
-  getOrderByUserId,
   getUserById,
+  deleteUser,
+  createUser,
+  updateUser,
+  getOrderByUserId,
   postOrderByUserId,
-  deleteOrderByUserId,
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -22,6 +24,28 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+router.delete("/:id", async (req, res, next) => {
+  try {
+    res.send(await deleteUser(req.params.id));
+  } catch (err) {
+    next(err);
+  }
+});
+router.post("/", async (req, res, next) => {
+  try {
+    res.send(await createUser(req.body));
+  } catch (err) {
+    next(err);
+  }
+});
+router.put("/:id", async (req, res, next) => {
+  try {
+    res.send(await updateUser(req.params.id, req.body));
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/:id/orders", async (req, res, next) => {
   try {
     res.send(await getOrderByUserId(req.params.id));
@@ -29,19 +53,12 @@ router.get("/:id/orders", async (req, res, next) => {
     next(err);
   }
 });
-router.post("/:userId/orders", async (req, res, next) => {
-  try {
-    res.send(await postOrderByUserId(req.body));
-  } catch (err) {
-    next(err);
-  }
-});
-router.delete("/:userId/orders/:id", async (req, res, next) => {
-  try {
-    res.send(await deleteOrderByUserId(req.params.id));
-  } catch (err) {
-    next(err);
-  }
-});
+// router.post("/:userId/orders", async (req, res, next) => {
+//   try {
+//     res.send(await postOrderByUserId(req.body));
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 module.exports = router;
