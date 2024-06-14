@@ -50,6 +50,40 @@ const updateProduct = async (id, product) => {
   return response.rows[0];
 };
 
+// order_products
+const getAllOrder_Products = async () => {
+    const response = await client.query(`SELECT * FROM order_products ORDER BY id ASC`);
+    return response.rows;
+};
+
+const getOrder_ProductByOrderId = async (id) => {
+    const response = await client.query(`SELECT * FROM order_products INNER JOIN products ON order_products.product_Id = products.id WHERE order_id = $1`, [id]);
+    return response.rows;
+};
+
+const deleteOrder_Product = async (id) => {
+    await client.query(`DELETE FROM order_products WHERE id = $1`, [id]);
+    return { id };
+};
+
+const createOrder_Product = async (order_product) => {
+    const { order_id, product_id, quantity } = order_product;
+    const response = await client.query(
+        `INSERT INTO order_products (order_id, product_id, quantity) VALUES ($1, $2, $3 RETURNING *`,
+        [order_id, product_id, quantity]
+    );
+    return response.rows[0];
+};
+
+const updateOrder_Product = async (id, order_product) => {
+    const { order_id, product_id, quantity } = order_product;
+    const response = await client.query(
+        `UPDATE order_products SET order_id = $1, product_id = $2, quantity = $3 WHERE id = $4 RETURNING *`,
+        [order_id, product_id, quantity, id]
+    );
+    return response.rows[0];
+};
+  
 
 // orders
 const getAllOrders = async () => {
@@ -74,7 +108,7 @@ const getOrderByUserId = async (params_id) => {
   };
 };
 
-const deleteOrderByUserId = async (id) => {
+const deleteOrderById = async (id) => {
   await client.query(`DELETE FROM orders WHERE id = $1`, [Number(id)]);
   return {
     id: id,
@@ -82,16 +116,20 @@ const deleteOrderByUserId = async (id) => {
 };
 
 const postOrderByUserId = async (body) => {
-    await client.query(`INSERT INTO orders(product_id, user_id) VALUES($1, $2)`, [
-      body.product_id,
+    await client.query(`INSERT INTO orders(user_id, is_cart, created_at) VALUES($1, $2, now())`, [
       body.user_id,
+      body.is_cart,
+      body.created_at
     ]);
     return {
-      product_id: body.product_id,
       user_id: body.user_id,
+      is_cart: body.is_cart,
+      created_at: body.created_at
+
     };
 };
-  
+// ------------create purchase order by id changing boolean to true and updated time------------
+
 
 module.exports = {
   getAllUsers,
@@ -101,10 +139,15 @@ module.exports = {
   deleteProduct,
   createProduct,
   updateProduct,
+  getAllOrder_Products,
+  getOrder_ProductByOrderId,
+  deleteOrder_Product,
+  createOrder_Product,
+  updateOrder_Product,
   getAllOrders,
   getOrderById,
   getOrderByUserId,
-  deleteOrderByUserId,
+  deleteOrderById,
   postOrderByUserId,
   client,
 };
