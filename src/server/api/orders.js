@@ -4,8 +4,8 @@ const {
     getAllOrders, 
     getOrderById,
     getOrderByUserId,
-    getDeleteOrderByUserId,
-    getPostOrderByUserId 
+    DeleteOrderByUserId,
+    PostOrderByUserId 
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
