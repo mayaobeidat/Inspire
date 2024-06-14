@@ -23,7 +23,7 @@ router.get("/:id", async (req, res, next) => {
     }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
     try {
       res.send(await deleteOrder_Product(req.params.id));
     } catch (err) {
@@ -31,7 +31,7 @@ router.get("/:id", async (req, res, next) => {
     }
   });
   
-  router.get("/", async (req, res, next) => {
+  router.post("/", async (req, res, next) => {
     try {
       res.send(await createOrder_Product(req.params.id));
     } catch (err) {
@@ -39,7 +39,7 @@ router.get("/:id", async (req, res, next) => {
     }
   });
   
-  router.get("/:id", async (req, res, next) => {
+  router.put("/:id", async (req, res, next) => {
     try {
       res.send(await updateOrder_Product(req.params.id));
     } catch (err) {

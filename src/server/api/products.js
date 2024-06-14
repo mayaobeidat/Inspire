@@ -3,9 +3,9 @@ const router = express.Router();
 const { 
     getAllProducts, 
     getProductById,
-    DeleteProduct,
-    CreateProduct,
-    UpdateProduct
+    deleteProduct,
+    createProduct,
+    updateProduct
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -24,25 +24,25 @@ router.get("/:id", async (req, res, next) => {
     }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    res.send(await DeleteProduct(req.params.id));
+    res.send(await deleteProduct(req.params.id));
   } catch (err) {
     next(err);
   }
 })
 
-router.get("/:id", async (req, res, next) => {
+router.post("/:id", async (req, res, next) => {
   try {
-    res.send(await CreateProduct(req.params.id));
+    res.send(await createProduct(req.params.id));
   } catch (err) {
     next(err);
   }
 })
 
-router.get("/:id", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
-    res.send(await UpdateProduct(req.params.id));
+    res.send(await updateProduct(req.params.id));
   } catch (err) {
     next(err);
   }

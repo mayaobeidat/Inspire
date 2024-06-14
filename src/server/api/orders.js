@@ -3,9 +3,8 @@ const router = express.Router();
 const { 
     getAllOrders, 
     getOrderById,
-    getOrderByUserId,
-    DeleteOrderByUserId,
-    PostOrderByUserId 
+    deleteOrderById,
+    postOrderByUserId 
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -23,25 +22,17 @@ router.get("/:id", async (req, res, next) => {
     }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    res.send(await getOrderByUserId(req.params.id));
+    res.send(await deleteOrderById(req.params.id));
   } catch (err) {
     next(err);
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.post("/:id", async (req, res, next) => {
   try {
-    res.send(await DeleteOrderByUserId(req.params.id));
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.get("/:id", async (req, res, next) => {
-  try {
-    res.send(await PostOrderByUserId(req.params.id));
+    res.send(await postOrderByUserId(req.params.id));
   } catch (err) {
     next(err);
   }
