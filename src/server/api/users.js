@@ -7,7 +7,7 @@ const {
   createUser,
   updateUser,
   getOrderByUserId,
-  postOrderByUserId,
+  // postOrderByUserId,
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
