@@ -1,7 +1,7 @@
 {
   "scripts":{
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start": "node index.js dev",
+    "start:dev": "nodemon ./src/server/api/index.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
