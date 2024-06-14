@@ -32,7 +32,7 @@ router.delete("/:id", async (req, res, next) => {
 
 router.post("/:id", async (req, res, next) => {
   try {
-    res.send(await postOrderByUserId(req.params.id));
+    res.send(await postOrderByUserId(req.body));
   } catch (err) {
     next(err);
   }

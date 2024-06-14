@@ -32,9 +32,9 @@ router.delete("/:id", async (req, res, next) => {
   }
 })
 
-router.post("/:id", async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
-    res.send(await createProduct(req.params.id));
+    res.send(await createProduct(req.body));
   } catch (err) {
     next(err);
   }
@@ -42,7 +42,7 @@ router.post("/:id", async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
   try {
-    res.send(await updateProduct(req.params.id));
+    res.send(await updateProduct(req.params.id, req.body));
   } catch (err) {
     next(err);
   }
