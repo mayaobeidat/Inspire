@@ -15,6 +15,12 @@ const getUserById = async (id) => {
     return response.rows[0];
 };
 
+const createUser = async ({ username, password }) => {
+  const result = await client.query(
+    "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *",
+    [username, password]
+  );
+  return result.rows[0];
 
 // products
 const getAllProducts = async () => {
@@ -96,6 +102,7 @@ const postOrderByUserId = async (body) => {
 module.exports = {
   getAllUsers,
   getUserById,
+  createUser,
   getAllProducts,
   getProductById,
   deleteProduct,
