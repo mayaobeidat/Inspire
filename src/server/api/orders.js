@@ -4,7 +4,8 @@ const {
     getAllOrders, 
     getOrderById,
     deleteOrderById,
-    postOrderByUserId 
+    postOrderByUserId, 
+    checkout
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -37,5 +38,13 @@ router.post("/:id", async (req, res, next) => {
     next(err);
   }
 });
+// router.put("/:id", async (req, res, next) => {
+//   try {
+//     res.send(await checkout(req.body));
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
 
 module.exports = router;
