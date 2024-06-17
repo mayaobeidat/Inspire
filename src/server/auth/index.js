@@ -22,10 +22,10 @@ function authenticateToken(req, res, next) {
 
 //register
 router.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { name, email, address, username, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 5);
-    const newUser = await createUser({ username, password: hashedPassword });
+    const newUser = await createUser({ name, email, address, username, password: hashedPassword });
     res.status(201).json({ message: "User successfully created", user: newUser });
   } catch (err) {
     res.status(500).json({ message: "User not created" });
