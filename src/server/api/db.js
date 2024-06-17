@@ -1,5 +1,7 @@
 const pg = require("pg");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const jwtSecret = 'Whitegyalshoes';
 
 const client = new pg.Client("postgres://localhost/ecom_db");
 
@@ -16,12 +18,10 @@ const getUserById = async (id) => {
   return response.rows[0];
 };
 
-// const getUserByUsername = async (username) => {
-//   const response = await client.query(`SELECT * FROM users WHERE username = $1`, [
-//     username,
-//   ]);
-//   return response.rows[0];
-// };
+const getUserByUsername = async (username) => {
+  const response = await client.query(`SELECT * FROM users WHERE username = $1`, [username]);
+  return response.rows[0];
+};
 
 const deleteUser = async (id) => {
   await client.query(`DELETE FROM users WHERE id = $1`, [id]);
@@ -30,6 +30,8 @@ const deleteUser = async (id) => {
 
 const createUser = async (user) => {
 const { name, email, address, username, password } = user;
+const token = await jwt.sign({ id: user.id }, jwtSecret);
+console.log("Token generated:", token);
 const response = await client.query(
   `INSERT INTO users (name, email, address, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
   [name, email, address, username, await bcrypt.hash(password, 5)]
@@ -166,7 +168,7 @@ const postOrderByUserId = async (body) => {
 module.exports = {
   getAllUsers,
   getUserById,
-  // getUserByUsername,
+  getUserByUsername,
   deleteUser,
   createUser,
   updateUser,
