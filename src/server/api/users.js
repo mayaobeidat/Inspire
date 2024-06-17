@@ -7,7 +7,6 @@ const {
   createUser,
   updateUser,
   getOrderByUserId,
-  // postOrderByUserId,
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -53,12 +52,4 @@ router.get("/:id/orders", async (req, res, next) => {
     next(err);
   }
 });
-// router.post("/:userId/orders", async (req, res, next) => {
-//   try {
-//     res.send(await postOrderByUserId(req.body));
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
 module.exports = router;
