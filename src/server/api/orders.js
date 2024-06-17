@@ -5,7 +5,7 @@ const {
     getOrderById,
     deleteOrderById,
     postOrderByUserId, 
-    checkout
+    // checkout
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
