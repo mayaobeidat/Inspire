@@ -1,7 +1,7 @@
 const pg = require("pg");
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
-const jwtSecret = 'Whitegyalshoes';
+const jwtSecret = 'fashionista';
 
 const client = new pg.Client("postgres://localhost/ecom_db");
 
@@ -161,6 +161,11 @@ const postOrderByUserId = async (body) => {
 
     };
 };
+
+// const checkout = async (id) => {
+//   await client.query(`UPDATE orders SET is_cart = false, date_time_purchased = now() WHERE order_id = $1`, [id]);
+//   return response.rows[0]
+// };
 // ------------create purchase order by id changing boolean to true and updated time------------
 
 
@@ -187,5 +192,6 @@ module.exports = {
   getOrderByUserId,
   deleteOrderById,
   postOrderByUserId,
+  // checkout,
   client,
 };
