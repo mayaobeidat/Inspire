@@ -58,7 +58,7 @@ function AllProducts() {
             <Link className="link" to={"product/" + product.id}>
               <button className="border_button">See info</button>
             </Link>
-            <Checkout product={product.id} /> {}
+            {/* <Checkout product={product.id} /> {} */}
           </div>
         </div>
       ))}

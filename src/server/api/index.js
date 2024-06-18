@@ -1,9 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const { client } = require("./db");
 const { router: authRouter, authenticateToken } = require("../auth/index");
 
 app.use(express.json());
+
+app.use(cors());
+
 client.connect();
 
 app.use("/api/users", require("./users"));
