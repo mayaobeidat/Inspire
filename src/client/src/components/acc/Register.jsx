@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useRegisterMutation } from "../../../api/sliceAuth";
+import { useRegisterMutation } from "../../api/sliceAuth";
 import { useState } from "react";
 
 export default function Register() {
