@@ -28,8 +28,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setToken } from "./api/sliceAuth";
 import { Routes, Route } from "react-router-dom";
-import AllProducts from "./components/products/allProducts";
-import SingleProduct from "./components/products/singleProduct";
+import AllProducts from "./components/products/AllProducts";
+import SingleProduct from "./components/products/SingleProduct";
 import "./index.css";
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("token", token)
+    console.log("token", token);
     if (token) {
       dispatch(setToken(token));
       setUserToken(token);
@@ -49,7 +49,7 @@ function App() {
     <div className="main">
       <Routes>
         <Route path="/" element={<AllProducts />} />
-        <Route path="/:id" element={<SingleProduct />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
       </Routes>
     </div>
   );
