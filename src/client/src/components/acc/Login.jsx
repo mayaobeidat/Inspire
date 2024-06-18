@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useLoginMutation } from "../../../api/sliceAuth";
+import { useLoginMutation } from "../../api/sliceAuth";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
+
 export default function Login() {
-  const { token } = useSelector((state) => state.sliceAuth);
+  // const { token } = useSelector((state) => state.sliceAuth);
+  const token = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const [login] = useLoginMutation();
   const [form, setForm] = useState({ email: "", password: "" });

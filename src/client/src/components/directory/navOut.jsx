@@ -11,10 +11,10 @@ export default function NavLoggedOut() {
           <Link to={"./products/allProducts.jsx"} className="linksI">
             <h3>Items</h3>
           </Link>
-          <Link to={"./acc/Login.jsx"} className="loginButt">
+          <Link to={"./auth/Login.jsx"} className="loginButt">
             <h6>Sign In Here</h6>
           </Link>
-          <Link to={"./acc/Register.jsx"} className="registerButt">
+          <Link to={"./auth/Register.jsx"} className="registerButt">
             <h6>Register Here</h6>
           </Link>
         </div>
