@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useLoginMutation } from "..api/sliceAuth";
+import { useLoginMutation } from "../../api/sliceAuth";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
