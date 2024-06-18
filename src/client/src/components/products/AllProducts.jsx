@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+function ProductCard({ product }) {
+  return (
+    <div className="productWrapper" key={product.id}>
+      <h1>{product.name}</h1>
+      <img src={product.image} alt={product.name} />
+      <p>{product.description}</p>
+      <p>${product.price}</p>
+      <div className="buttonWrapper">
+        <Link className="link" to={`/product/${product.id}`}>
+          <button className="border_button">See info</button>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function AllProducts() {
   const [products, setProducts] = useState([]);
   const [value, setValue] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [noSearchResults, setNoSearchResults] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getAllProducts() {
@@ -15,11 +32,14 @@ function AllProducts() {
             "Content-Type": "application/json",
           },
         });
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
         const data = await response.json();
         setProducts(data);
         setFilteredProducts(data);
       } catch (error) {
-        console.error(error);
+        setError(error.message);
       }
     }
     getAllProducts();
@@ -34,7 +54,7 @@ function AllProducts() {
     setNoSearchResults(searchResultArray.length === 0);
   }, [value, products]);
 
-  const setResults = (e) => {
+  const handleSearchChange = (e) => {
     setValue(e.target.value);
   };
 
@@ -44,23 +64,13 @@ function AllProducts() {
         <input
           type="text"
           placeholder="Search for a product..."
-          onChange={setResults}
+          onChange={handleSearchChange}
         />
       </div>
-      {noSearchResults && <h2>No products match search</h2>}
+      {error && <h2>{error}</h2>}
+      {noSearchResults && !error && <h2>No products match search</h2>}
       {filteredProducts.map((product) => (
-        <div className="productWrapper" key={product.id}>
-          <h1>{product.name}</h1>
-          <img src={product.image} alt={product.name} />
-          <p>{product.description}</p>
-          <p>${product.price}</p>
-          <div className="buttonWrapper">
-            <Link className="link" to={"product/" + product.id}>
-              <button className="border_button">See info</button>
-            </Link>
-            {/* <Checkout product={product.id} /> {} */}
-          </div>
-        </div>
+        <ProductCard product={product} key={product.id} />
       ))}
     </div>
   );
