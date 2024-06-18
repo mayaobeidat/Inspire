@@ -33,22 +33,65 @@ router.post("/register", async (req, res) => {
 });
 
 // login
-router.post("/login", async (req, res) => {
+// router.post("/login", async (req, res) => {
+//   const { username, password } = req.body;
+//   try {
+//     const user = await getUserByUsername(username);
+//     if (!user) return res.status(400).json({ message: "User not found" });
+
+//     const match = await bcrypt.compare(password, user.password);
+//     if (match) {
+//       const accessToken = jwt.sign({ username: user.username, id: user.id }, JWT_SECRET);
+//       res.json({ accessToken });
+//     } else {
+//       res.status(403).json({ message: "Password is incorrect" });
+//     }
+//   } catch (err) {
+//     res.status(500).json({ message: "Failed log in" });
+//   }
+// });
+router.post('/login', async (req, res, next) => {
   const { username, password } = req.body;
+
+  // request must have both
+  if (!username || !password) {
+    next({
+      name: "MissingCredentialsError",
+      message: "Please supply both a username and password"
+    });
+  }
+
   try {
     const user = await getUserByUsername(username);
-    if (!user) return res.status(400).json({ message: "User not found" });
 
-    const match = await bcrypt.compare(password, user.password);
-    if (match) {
-      const accessToken = jwt.sign({ username: user.username, id: user.id }, JWT_SECRET);
-      res.json({ accessToken });
+    const isCorrectPassword = await bcrypt.compare(password, user.password)
+    console.log(user, isCorrectPassword)
+    if (user && isCorrectPassword) {
+      const token = jwt.sign({ 
+        id: user.id, 
+        username
+      }, `${process.env.JWT_SECRET_KEY}`, {
+        expiresIn: '1w'
+      });
+
+      res.send({ 
+        message: "you're logged in!",
+        token,
+        userId: user.id,
+      });
     } else {
-      res.status(403).json({ message: "Password is incorrect" });
+      next({ 
+        name: 'IncorrectCredentialsError', 
+        message: 'Username or password is incorrect'
+      });
     }
-  } catch (err) {
-    res.status(500).json({ message: "Failed log in" });
+  } catch(error) {
+    console.log(error);
+    next(error);
   }
 });
 
 module.exports = { router, authenticateToken };
+
+
+// fix the login path to return proper data,, currently returning object
