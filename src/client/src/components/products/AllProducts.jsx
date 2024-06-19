@@ -4,15 +4,19 @@ import { Link } from "react-router-dom";
 function ProductCard({ product }) {
   return (
     <div className="productWrapper" key={product.id}>
-      <h1>{product.name}</h1>
-      <img src={product.image} alt={product.name} />
-      <p>{product.description}</p>
-      <p>${product.price}</p>
-      <div className="buttonWrapper">
-        <Link className="link" to={`/product/${product.id}`}>
-          <button className="border_button">See info</button>
-        </Link>
-      </div>
+      <ul className="product-list">
+        <div className="card-image-container">
+          <img className="cardCoverImg" src={product.image} alt={product.name} />
+        </div>
+        <h1 className="cardName">{product.name}</h1>
+        {/* <p className="cardDescription">{product.description}</p> */}
+        <p className="cardPrice">${product.price}</p>
+        <div className="buttonWrapper">
+          <Link className="link" to={`/product/${product.id}`}>
+            <button className="border_button">See info</button>
+          </Link>
+        </div>
+      </ul>
     </div>
   );
 }
@@ -60,18 +64,23 @@ function AllProducts() {
 
   return (
     <div className="contentWrapper">
-      <div className="searchBar">
-        <input
-          type="text"
-          placeholder="Search for a product..."
-          onChange={handleSearchChange}
-        />
+      <div className="search-bar-container">
+        <ul className="searchBar">
+          <h1>All Items</h1>
+          <input
+            type="text"
+            placeholder="Search for a product..."
+            onChange={handleSearchChange}
+          />
+        </ul>
       </div>
-      {error && <h2>{error}</h2>}
-      {noSearchResults && !error && <h2>No products match search</h2>}
-      {filteredProducts.map((product) => (
-        <ProductCard product={product} key={product.id} />
-      ))}
+      <div className="product-list-wrapper">
+          {error && <h2>{error}</h2>}
+          {noSearchResults && !error && <h2>No products match search</h2>}
+          {filteredProducts.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+      </div>
     </div>
   );
 }
