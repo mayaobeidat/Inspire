@@ -85,14 +85,16 @@ export default function Register() {
             required
           />
         </div>
-        {/* Submit button */}
-        <button type="submit" className="submit-btn">
-          Sign Up
-        </button>
-        {/* Link to login page */}
-        <p className="login-link">
-          Have an account? <Link to={"/auth/login"}>Login</Link>
-        </p>
+        <div className="form-submission">
+          {/* Submit button */}
+          <button type="submit" className="submit-btn">
+            Sign Up
+          </button>
+          {/* Link to login page */}
+          <p className="login-link">
+            Have an account? <Link to={"/auth/login"}>Login</Link>
+          </p>
+        </div>
       </form>
     </div>
   );

@@ -50,13 +50,15 @@ export default function Login() {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="login-button">
-            Login
-          </button>
-          <p>
-            No Account?
-            <Link to="/auth/register"> Sign up</Link>
-          </p>
+          <div className="form-submission">
+            <button type="submit" className="login-button">
+              Login
+            </button>
+            <p>
+              No Account?
+              <Link to="/auth/register"> Sign up</Link>
+            </p>
+          </div>
         </form>
       )}
     </div>
