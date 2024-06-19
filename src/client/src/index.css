@@ -50,6 +50,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 75px;
 }
 .product-list-wrapper{
     display: flex;
