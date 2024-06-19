@@ -69,6 +69,7 @@ function AllProducts() {
           <h1>All Items</h1>
           <input
             type="text"
+            className="sBar"
             placeholder="Search for a product..."
             onChange={handleSearchChange}
           />

@@ -51,6 +51,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 75px;
+    margin-bottom: 75px;
 }
 .product-list-wrapper{
     display: flex;
@@ -99,11 +100,21 @@
 .cardPrice{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
+    color: black;
+    font-weight: lighter;
 }
 .buttonWrapper{
     justify-content: center;
     align-items: center;
     margin-top: 0%;
+}
+.border_button{
+    height: 25px;
+    width: 209px;
+    background-color: black;
+    color: white;
+    border: none;
+    box-shadow: none;
 }
 
 /* Search Bar */
@@ -116,6 +127,9 @@
     align-items: center;
     text-align: center;
     margin: 10px;
+}
+.sBar{
+    border-color: black;
 }
 
 /* Products - Individual */
