@@ -7,9 +7,10 @@ export default function Register() {
   const [addNewUser] = useRegisterMutation();
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
+    address: "",
+    username: "",
     password: "",
   });
 
@@ -31,22 +32,13 @@ export default function Register() {
       <form onSubmit={onSubmit} className="register-form">
         <h1 className="register-title">Sign Up</h1>
         
-        {/* Input fields for first name, last name, email, password */}
+        {/* Input fields for name, email, address, username, password */}
         <div className="form-group">
           <input
             type="text"
             className="form-control"
-            placeholder="First Name"
-            name="firstName"
-            onChange={onChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Last Name"
-            name="lastName"
+            placeholder="Name"
+            name="Name"
             onChange={onChange}
           />
         </div>
@@ -56,8 +48,28 @@ export default function Register() {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            placeholder="Email"
+            placeholder="Email..."
             name="email"
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Address..."
+            name="address"
+            onChange={onChange}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="username"
+            className="form-control"
+            // id="exampleInputPassword1"
+            placeholder="Username..."
+            name="username"
             onChange={onChange}
             required
           />
@@ -66,19 +78,17 @@ export default function Register() {
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Password"
+            // id="exampleInputPassword1"
+            placeholder="Password..."
             name="password"
             onChange={onChange}
             required
           />
         </div>
-        
         {/* Submit button */}
         <button type="submit" className="submit-btn">
           Sign Up
         </button>
-        
         {/* Link to login page */}
         <p className="login-link">
           Have an account? <Link to={"/auth/login"}>Login</Link>
