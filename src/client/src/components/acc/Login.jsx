@@ -9,7 +9,7 @@ export default function Login() {
   const token = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const [login] = useLoginMutation();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ username: "", password: "" });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,8 +36,8 @@ export default function Login() {
             <input
               type="email"
               className="form-control"
-              placeholder="Email"
-              name="email"
+              placeholder="Username..."
+              name="username"
               onChange={handleChange}
             />
           </div>
