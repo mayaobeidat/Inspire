@@ -1,8 +1,50 @@
-    /* Directory Component */
+/* --- Directory Component --- */
 /* NavBar */
+.navBar {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.navBarL {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.navBarL li {
+    display: flex;
+    align-items: center;
+}
+.navBarL a,
+.navBarL button {
+    text-decoration: none;
+    color: #000000;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.navBarL a:hover,
+.navBarL button:hover {
+    background-color: rgba(239, 236, 236, 0.7);
+    border-radius: 5px;
+    color: #000000;
+}
 
-
-    /* Products Component */
+/* --- Products Component --- */
 /* Products - All */
 .contentWrapper{
     display: flex;
