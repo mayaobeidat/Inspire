@@ -75,4 +75,28 @@
 }
 
 /* Products - Individual */
-
+.singleProductWrapper{
+    padding: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 800px;
+}
+.single-product-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.single-product-description{
+    width: 400px;
+    text-align: center;
+}
+.sPdescription{
+    text-align: center;
+}
+.single-image-container{
+    padding: 10px;
+}
+.single-image{
+    height: 700px;
+    width: 300px;
+}

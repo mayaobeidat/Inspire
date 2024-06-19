@@ -42,10 +42,16 @@ function SingleProduct() {
     <div className="singleProductWrapper">
       {product && (
         <>
-          <h1>{product.name}</h1>
-          <img src={product.image} alt={product.name} />
-          <p>{product.description}</p>
-          <p>${product.price}</p>
+          <ul className="single-product-wrapper">
+            <div className="single-product-description">
+              <h1>{product.name}</h1>
+              <p className="sPdescription">{product.description}</p>
+              <p>${product.price}</p>
+            </div>
+            <div className="single-image-container">
+              <img className="single-image" src={product.image} alt={product.name} />
+            </div>
+          </ul>
         </>
       )}
     </div>
