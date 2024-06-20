@@ -6,6 +6,7 @@ import AllProducts from "./components/products/AllProducts";
 import SingleProduct from "./components/products/SingleProduct";
 import Login from "./components/acc/Login";
 import Register from "./components/acc/Register";
+import Home from "./components/directory/home";
 import NavBar from "./components/directory/navBar";
 import Account from "./components/acc/account";
 import Cart from "./components/Cart"; 
