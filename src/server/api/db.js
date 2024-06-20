@@ -34,7 +34,7 @@ const token = await jwt.sign({ id: user.id }, jwtSecret);
 console.log("Token generated:", token);
 const response = await client.query(
   `INSERT INTO users (name, email, address, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-  [name, email, address, username, await bcrypt.hash(password, 5)]
+  [name, email, address, username, password]
 );
 return response.rows[0];
 };
