@@ -44,7 +44,23 @@
     color: #000000;
 }
 
+
 /* --- Products Component --- */
+/* Search Bar */
+.search-bar-container{
+    padding: 10px;
+    width: 400px;
+}
+.searchBar{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+.sBar{
+    border-color: rgb(224, 224, 224);
+}
+
 /* Products - All */
 .contentWrapper{
     display: flex;
@@ -65,7 +81,8 @@
     justify-content: center;
     align-content: space-between;
     margin: 30px;
-    height: 350px;
+    margin-bottom: 25px;
+    height: 450px;
     width: 275px;
 }
 .product-list {
@@ -97,6 +114,11 @@
     font-size: medium;
     height: 30px;
 }
+.cardDesigner{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    color: black;
+}
 .cardPrice{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
@@ -117,27 +139,13 @@
     box-shadow: none;
 }
 
-/* Search Bar */
-.search-bar-container{
-    padding: 10px;
-    width: 400px;
-}
-.searchBar{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 10px;
-}
-.sBar{
-    border-color: black;
-}
-
 /* Products - Individual */
 .singleProductWrapper{
     padding: 40px;
     margin-left: 20px;
     margin-right: 20px;
-    height: 800px;
+    height: 680px;
+
 }
 .single-product-wrapper{
     display: flex;
@@ -146,6 +154,9 @@
 }
 .single-product-description{
     width: 400px;
+    text-align: center;
+}
+.sPdesigner{
     text-align: center;
 }
 .sPdescription{

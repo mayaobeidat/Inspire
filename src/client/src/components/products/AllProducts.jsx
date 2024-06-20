@@ -9,7 +9,7 @@ function ProductCard({ product }) {
           <img className="cardCoverImg" src={product.image} alt={product.name} />
         </div>
         <h1 className="cardName">{product.name}</h1>
-        {/* <p className="cardDescription">{product.description}</p> */}
+        <p className="cardDesigner">{product.designer}</p>
         <p className="cardPrice">${product.price}</p>
         <div className="buttonWrapper">
           <Link className="link" to={`/product/${product.id}`}>

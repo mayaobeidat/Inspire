@@ -45,6 +45,7 @@ function SingleProduct() {
           <ul className="single-product-wrapper">
             <div className="single-product-description">
               <h1>{product.name}</h1>
+              <h2 className="sPdesigner">{product.designer}</h2>
               <p className="sPdescription">{product.description}</p>
               <p>${product.price}</p>
             </div>
