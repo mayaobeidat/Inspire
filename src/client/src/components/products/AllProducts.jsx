@@ -51,7 +51,8 @@ function AllProducts() {
 
   useEffect(() => {
     const searchResultArray = products.filter((product) =>
-      product.name.toLowerCase().includes(value.toLowerCase())
+      product.name.toLowerCase().includes(value.toLowerCase()) ||
+      product.designer.toLowerCase().includes(value.toLowerCase())
     );
 
     setFilteredProducts(searchResultArray);
@@ -76,11 +77,11 @@ function AllProducts() {
         </ul>
       </div>
       <div className="product-list-wrapper">
-          {error && <h2>{error}</h2>}
-          {noSearchResults && !error && <h2>No products match search</h2>}
-          {filteredProducts.map((product) => (
-            <ProductCard product={product} key={product.id} />
-          ))}
+        {error && <h2>{error}</h2>}
+        {noSearchResults && !error && <h2>No products match search</h2>}
+        {filteredProducts.map((product) => (
+          <ProductCard product={product} key={product.id} />
+        ))}
       </div>
     </div>
   );
