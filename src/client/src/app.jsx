@@ -8,6 +8,7 @@ import Login from "./components/acc/Login";
 import Register from "./components/acc/Register";
 import NavBar from "./components/directory/navBar";
 import Account from "./components/acc/account";
+import Cart from "./components/Cart"; 
 import "./index.css";
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         {/* <Route path="/home" element={<Home/>}/> */}
-        <Route path="/auth/me" element={<Account />}/>
+        <Route path="/auth/me" element={<Account />} />
+        <Route path="/cart" element={<Cart />} /> {/* Add Cart route */}
       </Routes>
     </div>
   );
