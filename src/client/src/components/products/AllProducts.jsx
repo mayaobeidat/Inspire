@@ -67,7 +67,7 @@ function AllProducts() {
     <div className="contentWrapper">
       <div className="search-bar-container">
         <ul className="searchBar">
-          <h1>All Items</h1>
+          <h1>The MALT Shop</h1>
           <input
             type="text"
             className="sBar"
@@ -88,3 +88,6 @@ function AllProducts() {
 }
 
 export default AllProducts;
+
+
+
