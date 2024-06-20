@@ -1,19 +1,11 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { client, getUserByUsername, createUser } = require("../api/db");
+const { client, getUserByUsername, createUser, getUserById } = require("../api/db");
 const router = express.Router();
 
 const JWT_SECRET = "fashionista"; 
 
-const isLoggedIn = async(req,res,next)=>{
-  try{
-      req.user = await authenticateToken(req.headers.authorization);
-      next();
-  }catch(err){
-      next(err)
-  }
-}
 
 
 //register
@@ -30,6 +22,7 @@ router.post("/register", async (req, res) => {
 
 // login
 router.post('/login', async (req, res, next) => {
+  console.log("loginRoute")
   const { username, password } = req.body;
 
   // request must have both
@@ -49,7 +42,7 @@ router.post('/login', async (req, res, next) => {
       const token = jwt.sign({ 
         id: user.id, 
         username
-      }, `${process.env.JWT_SECRET_KEY}`, {
+      }, JWT_SECRET, {
         expiresIn: '1w'
       });
 
@@ -70,9 +63,9 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-router.get('/me', isLoggedIn, (req,res,next)=>{
+router.get('/me', authenticateToken, async (req,res,next)=> {
   try{
-      res.send(req.user)
+      res.send(await getUserById(req.user.id))
   }catch(err){
       next(err);
   }
@@ -80,6 +73,8 @@ router.get('/me', isLoggedIn, (req,res,next)=>{
 
 // middleware
 function authenticateToken(req, res, next) {
+  console.log("authenticateToken");
+
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   

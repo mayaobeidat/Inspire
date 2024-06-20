@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const handleLogout = () => {
     dispatch(clearToken());
-    navigate("/auth/login");
+    navigate("/login");
   };
 
   return (
@@ -43,12 +43,12 @@ export default function NavBar() {
         ) : (
           <>
             <li>
-              <NavLink className="nlR" to="/auth/register">
+              <NavLink className="nlR" to="/register">
                 Register
               </NavLink>
             </li>
             <li>
-              <NavLink className="nlL" to="/auth/login">
+              <NavLink className="nlL" to="/login">
                 Log In
               </NavLink>
             </li>

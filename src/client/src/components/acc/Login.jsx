@@ -17,15 +17,18 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("FORM", form);
     const result = await login(form);
-    console.log(result);
+    console.log("RESULT", result);
+    navigate("/auth/me");
+
   };
 
-  useEffect(() => {
-    if (token) {
-      navigate("/");
-    }
-  }, [token, navigate]);
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate("/auth/me");
+  //   }
+  // }, [token, navigate]);
 
   return (
     <div className="login-page">

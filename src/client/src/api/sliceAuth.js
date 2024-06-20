@@ -5,11 +5,14 @@ import { api } from "./api";
 const authApi = api.injectEndpoints ({
     endpoints: (builder) => ({
         login: builder.mutation ({
-            query: (credentials) => ({
+            query: (credentials) => {
+                console.log("loginMut")
+                console.log(credentials)
+                return {
                 url: "auth/login",
                 method: "POST",
                 body: credentials,
-            }),
+            }},
         }),
         register: builder.mutation({
             query: (credentials) => ({
@@ -23,6 +26,7 @@ const authApi = api.injectEndpoints ({
         }),
     }),
 });
+console.log(authApi)
 export const { useLoginMutation, useRegisterMutation, useLogoutMutation } = authApi;
 
 const AuthSlice = createSlice({
