@@ -48,7 +48,7 @@ function SingleProduct() {
   if (error) {
     return <div>{error}</div>;
   }
-
+  // onClick={()=>alert("Added to Cart!")}
   return (
     <div className="singleProductWrapper">
       {product && (
