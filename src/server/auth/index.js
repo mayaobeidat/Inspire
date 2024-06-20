@@ -6,19 +6,15 @@ const router = express.Router();
 
 const JWT_SECRET = "fashionista"; 
 
-// middleware
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-  
-  if (!token) return res.sendStatus(401);
-  
-  jwt.verify(token, JWT_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
+const isLoggedIn = async(req,res,next)=>{
+  try{
+      req.user = await authenticateToken(req.headers.authorization);
+      next();
+  }catch(err){
+      next(err)
+  }
 }
+
 
 //register
 router.post("/register", async (req, res) => {
@@ -33,23 +29,6 @@ router.post("/register", async (req, res) => {
 });
 
 // login
-// router.post("/login", async (req, res) => {
-//   const { username, password } = req.body;
-//   try {
-//     const user = await getUserByUsername(username);
-//     if (!user) return res.status(400).json({ message: "User not found" });
-
-//     const match = await bcrypt.compare(password, user.password);
-//     if (match) {
-//       const accessToken = jwt.sign({ username: user.username, id: user.id }, JWT_SECRET);
-//       res.json({ accessToken });
-//     } else {
-//       res.status(403).json({ message: "Password is incorrect" });
-//     }
-//   } catch (err) {
-//     res.status(500).json({ message: "Failed log in" });
-//   }
-// });
 router.post('/login', async (req, res, next) => {
   const { username, password } = req.body;
 
@@ -91,7 +70,47 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+router.get('/me', isLoggedIn, (req,res,next)=>{
+  try{
+      res.send(req.user)
+  }catch(err){
+      next(err);
+  }
+})
+
+// middleware
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  
+  if (!token) return res.sendStatus(401);
+  
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
+
 module.exports = { router, authenticateToken };
 
 
 // fix the login path to return proper data,, currently returning object
+
+// router.post("/login", async (req, res) => {
+//   const { username, password } = req.body;
+//   try {
+//     const user = await getUserByUsername(username);
+//     if (!user) return res.status(400).json({ message: "User not found" });
+
+//     const match = await bcrypt.compare(password, user.password);
+//     if (match) {
+//       const accessToken = jwt.sign({ username: user.username, id: user.id }, JWT_SECRET);
+//       res.json({ accessToken });
+//     } else {
+//       res.status(403).json({ message: "Password is incorrect" });
+//     }
+//   } catch (err) {
+//     res.status(500).json({ message: "Failed log in" });
+//   }
+// });
