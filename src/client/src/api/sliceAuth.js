@@ -32,8 +32,8 @@ export const { useLoginMutation, useRegisterMutation, useLogoutMutation } = auth
 const AuthSlice = createSlice({
     name: "auth",
     initialState: {
-      token: localStorage.getItem("token") || "",
-      reservations: [],
+      token: localStorage.getItem("token") || null ,
+    //   reservations: [],
     },
     reducers: {
         setToken: (state, action) => {
