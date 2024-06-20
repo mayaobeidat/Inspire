@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import AllProducts from "./AllProducts";
 
 function SingleProduct() {
@@ -48,6 +48,7 @@ function SingleProduct() {
               <h2 className="sPdesigner">{product.designer}</h2>
               <ul className="sPdescription">{product.description}</ul>
               <p>${product.price}</p>
+              <NavLink to={"/"}><button className="backBtn">Back</button></NavLink>
             </div>
             <div className="single-image-container">
               <img className="single-image" src={product.image} alt={product.name} />
