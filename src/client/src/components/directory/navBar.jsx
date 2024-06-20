@@ -33,7 +33,7 @@ export default function NavBar() {
         {token ? (
           <>
             <li>
-              <NavLink className="nlA" to="/users/me">
+              <NavLink className="nlA" to="/auth/me">
                 Account
               </NavLink>
             </li>
