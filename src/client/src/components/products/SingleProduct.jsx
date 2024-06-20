@@ -46,7 +46,7 @@ function SingleProduct() {
             <div className="single-product-description">
               <h1>{product.name}</h1>
               <h2 className="sPdesigner">{product.designer}</h2>
-              <p className="sPdescription">{product.description}</p>
+              <ul className="sPdescription">{product.description}</ul>
               <p>${product.price}</p>
             </div>
             <div className="single-image-container">

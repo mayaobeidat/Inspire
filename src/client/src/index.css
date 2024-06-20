@@ -154,12 +154,16 @@
 }
 .single-product-description{
     width: 400px;
+    justify-content: center;
+    align-content: center;
     text-align: center;
 }
 .sPdesigner{
     text-align: center;
 }
 .sPdescription{
+    padding: 10px;
+    justify-content: center;
     text-align: center;
 }
 .single-image-container{
