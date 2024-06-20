@@ -32,7 +32,7 @@ function App() {
         <Route path="auth/login" element={<Login />}/>
         <Route path="/auth/register" element={<Register />}/>
         {/* <Route path="/home" element={<Home/>}/> */}
-        <Route path="/account" element={Account}/>
+        <Route path="/auth/me" element={<Account />}/>
       </Routes>
     </div>
   );

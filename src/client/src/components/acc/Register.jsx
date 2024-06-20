@@ -24,7 +24,7 @@ export default function Register() {
     e.preventDefault(); // Prevent default form submission
     const results = await addNewUser(form); // Call registration mutation
     console.log(results); // Log the registration results
-    navigate("/auth/login"); // Navigate to login page after successful registration
+    navigate("/auth/me"); // Navigate to account page after successful registration
   };
 
   return (
