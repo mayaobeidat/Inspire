@@ -1,37 +1,79 @@
-import { useSelector, useDispatch } from "react-redux";
-// import { removeFromCart } from "../../slices/Cart";
+import React from 'react';
 
-export default function Account() {
-  const cart = useSelector((state) => state.cart.cartItems);
-  const dispatch = useDispatch();
-  const handleRemove = (i) => {
-    dispatch(removeFromCart(i));
-  };
-  return (
-    <>
-      <h1 id="accPg">My Account</h1>
-      <p id={"accPg2"}>Account Info</p>
-      <div className="accBox">
-        <h4 className="boxTitles">Checked Out Items:</h4>
-        {cart.length === 0 ? (
-          <div className="noCont">
-            <h4 className="noItems">
-              No Items Checked Out...Get To Shopping!
-            </h4>
-          </div>
-        ) : (
-            cart.map((i) => (
-                <ul key={i.id}>
-                  <li className="list">Item Name: {i.name}</li>
-                  <li className="list">{i.image}</li>
-                  <li className="list">Price: {i.price}</li>
-                  <button onClick={() => handleRemove(i)} className="return-butt">
-                    Return Item
-                  </button>
-                </ul>
-              ))
-            )}
-          </div>
-        </>
-      );
+// Assuming you have a token stored in localStorage or sessionStorage
+const token = localStorage.getItem('token'); // Retrieve token from storage
+
+// Function to fetch account information
+const fetchAccountInfo = async () => {
+  try {
+    const response = await fetch('https://localhost:5173/auth/login', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`, // Send token in Authorization header
+        'Content-Type': 'application/json'
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch account information');
     }
+
+    const accountData = await response.json();
+    console.log('Account Information:', accountData);
+    return accountData; // Return account data for further processing
+  } catch (error) {
+    console.error('Error fetching account information:', error.message);
+    // Handle error gracefully (e.g., show error message to user)
+    return null;
+  }
+};
+
+// Example usage
+fetchAccountInfo();
+
+
+const AccountPage = () => {
+  const user = {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    address: '123 Main St, Cityville',
+    username: 'shsdfrjg',
+    orders: [
+      { id: 1, date: '2024-06-10', total: 55.0 },
+      { id: 2, date: '2024-06-15', total: 78.5 },
+    ],
+  };
+
+  return (
+    <div className="account-page">
+      <h1>Welcome, {user.name}!</h1>
+
+      <section className="account-details">
+        <h2>Account Details</h2>
+        <p><strong>Name:</strong> {user.name}</p>
+        <p><strong>Email:</strong> {user.email}</p>
+        <p><strong>Address:</strong> {user.address}</p>
+        <p><strong>Username:</strong> {user.username}</p>
+      </section>
+
+      <section className="order-history">
+        <h2>Order History</h2>
+        {user.orders.length > 0 ? (
+          <ul>
+            {user.orders.map(order => (
+              <li key={order.id}>
+                <strong>Order ID:</strong> {order.id}<br />
+                <strong>Date:</strong> {order.date}<br />
+                <strong>Total:</strong> ${order.total.toFixed(2)}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No orders yet.</p>
+        )}
+      </section>
+    </div>
+  );
+};
+
+export default AccountPage;
