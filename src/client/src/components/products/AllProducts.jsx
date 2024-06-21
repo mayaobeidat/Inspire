@@ -67,7 +67,7 @@ function AllProducts() {
     <div className="contentWrapper">
       <div className="search-bar-container">
         <ul className="searchBar">
-          <h1>The MALT Shop</h1>
+          <h1>Shop Inspired</h1>
           <input
             type="text"
             className="sBar"

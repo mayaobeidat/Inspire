@@ -70,7 +70,7 @@ a:active {
 .search-bar-container{
     width: 1325px;
     height: 350px;
-    background-image: url(https://is4.revolveassets.com/images/up/2024/May/cfy_weddingguest_05222024_2x.jpg);
+    background-image: url(https://hips.hearstapps.com/hmg-prod/images/elle-off-white-fall-2018-1520004790.jpg);
     justify-content: center;
     align-items: center;
 
@@ -78,6 +78,7 @@ a:active {
 .search-bar-container, .background-image{
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: -70px;
 }
 .searchBar{
     text-align: center;
@@ -86,7 +87,7 @@ a:active {
     margin-right: 50px;
     font-family: monospace;
     font-size: xx-large;
-    color: rgb(239, 242, 252);
+    color: rgb(255, 255, 255);
 }
 .sBar{
     border-color: rgb(224, 224, 224);
