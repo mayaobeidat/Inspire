@@ -34,7 +34,15 @@ export default function Home() {
             <div className="nST"></div>
           </div>
           <div className="nav-item">
-            <NavLink to={'/product/16'}><img src="https://img.ssensemedia.com/images/g_center,f_auto/241404F111008_1/versace-pink-contrasto-medusa-95-tank-top.jpg" alt="Ankle Pants" className="nav-image" /></NavLink>
+            <NavLink to={'/product/16'}><img src="https://img.ssensemedia.com/images/g_center,f_auto/241404F111008_1/versace-pink-contrasto-medusa-95-tank-top.jpg" alt="Tank Top" className="nav-image" /></NavLink>
+            <div className="nST"></div>
+        </div>
+        <div className="nav-item">
+            <NavLink to={'/product/8'}><img src="https://img.ssensemedia.com/images/g_center,f_auto/242809F055005_1/issey-miyake-beige-and-navy-light-leak-maxi-dress.jpg" alt="Dress" className="nav-image" /></NavLink>
+            <div className="nST"></div>
+        </div>
+        <div className="nav-item">
+            <NavLink to={'/product/9'}><img src="https://img.ssensemedia.com/images/g_center,f_auto/242232F110036_1/rick-owens-black-porterville-rib-long-sleeve-t-shirt.jpg" alt="Long Sleeve T-Shirt" className="nav-image" /></NavLink>
             <div className="nST"></div>
         </div>
     </div>
