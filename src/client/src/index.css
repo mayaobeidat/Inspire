@@ -221,6 +221,39 @@ a:active {
     box-shadow: none;
     cursor: pointer;
 }
+/* Pagination for Products */
+.pagination{
+    display: flex;
+    flex-direction: row;
+}
+.pagination-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+
+.page-link{
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.previous {
+    background-color: white;
+    color: black;
+    font-size: medium;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+  
+.next {
+    background-color:white;
+    color: black;
+    font-size: medium;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 /* Products - Individual */
 .singleProductWrapper {
