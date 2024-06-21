@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../api/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
   const items = useSelector((state) => state.cart.items);
@@ -14,6 +16,10 @@ const Cart = () => {
 
   const handleContinueShopping = () => {
     navigate("/");
+  };
+
+  const handleViewProduct = (productId) => {
+    navigate(`/product/${productId}`);
   };
 
   return (
@@ -29,8 +35,16 @@ const Cart = () => {
               <div className="cart-item-details">
                 <div>{item.name}</div>
                 <div>${item.price}</div>
+                <button
+                  className="view-button"
+                  onClick={() => handleViewProduct(item.id)}
+                >
+                  View Product
+                </button>
               </div>
-              <button className="remove-button" onClick={() => handleRemove(item.cartItemId)}>Remove</button>
+              <button className="remove-button" onClick={() => handleRemove(item.cartItemId)}>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
             </li>
           ))}
         </ul>
@@ -41,4 +55,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
