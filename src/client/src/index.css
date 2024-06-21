@@ -465,6 +465,14 @@ a:active {
     justify-content: space-around;
     margin: 20px 0;
 }
+
+.navigation {
+    display: grid;
+    gap: var(--size-3);
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
+    overflow-x: auto;
+}
   
 .nav-item {
     position: relative;
