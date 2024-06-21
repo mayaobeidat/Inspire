@@ -49,10 +49,6 @@ function SingleProduct() {
     setOpen(false);
   };
 
-  const handleGoToCart = () => {
-    navigate("/cart");
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -78,7 +74,6 @@ function SingleProduct() {
                   onClose={handleClose}
                   message="Added to cart!"
                 />
-              <button className="cart-button" onClick={handleGoToCart}>Go to Cart</button> {/* Apply cart-button class */}
               <NavLink to={"/"}><button className="backBtn">Back</button></NavLink>
             </div>
             <div className="single-image-container">
