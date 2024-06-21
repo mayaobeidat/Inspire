@@ -102,11 +102,15 @@ function AllProducts() {
       <div className="pagination">
         {filteredProducts.length > productsPerPage && (
           <ul className="pagination-buttons">
-            <ul className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-              <button onClick={() => paginate(currentPage - 1)} className="page-link">
-                <a href="#" class="previous">&#8249;</a>
-              </button>
-            </ul>
+            { currentPage !== 1 
+            ? 
+              <ul className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                <button onClick={() => paginate(currentPage - 1)} className="page-link">
+                  <a href="#" class="previous">&#8249;</a>
+                </button>
+              </ul>
+            : <ul></ul>
+            }
             {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, index) => (
               <ul key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                 <button onClick={() => paginate(index + 1)} className="page-link">
@@ -114,11 +118,16 @@ function AllProducts() {
                 </button>
               </ul>
             ))}
-            <ul className={`page-item ${currentPage === Math.ceil(filteredProducts.length / productsPerPage) ? 'disabled' : ''}`}>
-              <button onClick={() => paginate(currentPage + 1)} className="page-link">
-                <a href="#" class="next">&#8250;</a>
-              </button>
-            </ul>
+            {
+              currentPage !== Math.ceil(filteredProducts.length / productsPerPage) 
+              ?
+              <ul className={`page-item ${currentPage === Math.ceil(filteredProducts.length / productsPerPage) ? 'disabled' : ''}`}>
+                <button onClick={() => paginate(currentPage + 1)} className="page-link">
+                  <a href="#" class="next">&#8250;</a>
+                </button>
+              </ul>
+            : <ul></ul>
+            }
           </ul>
         )}
       </div>
