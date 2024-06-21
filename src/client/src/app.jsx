@@ -10,6 +10,7 @@ import Home from "./components/directory/home";
 import NavBar from "./components/directory/navBar";
 import Account from "./components/acc/account";
 import Cart from "./components/Cart"; 
+import Blogs from "./components/blogs/blogs";
 import "./index.css";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/auth/me" element={<Account />} />
         <Route path="/cart" element={<Cart />} /> {/* Add Cart route */}
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
     </div>
   );

@@ -1,3 +1,19 @@
+a:link {
+    text-decoration: none;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
 /* --- Directory Component --- */
 /* NavBar */
 .navBar {
@@ -381,4 +397,122 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: large;
     color: #c5c5c5;
+}
+
+
+/* --- Blogs Component --- */
+/* Blog Page */
+.blogPageWrapper{
+    margin: 20px;
+    padding: 10px;
+}
+.blogPageContainer{
+    margin: 10px;
+}
+.blogheading{
+    width: 1325px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.bHT{
+    text-align: center;
+    margin: 10px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-weight: 100;
+    color: #3b3b3b;
+}
+.bCardList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1305px;
+}
+.bCard{
+    width: 400px;
+    height: 600px;
+    margin-top: 120px;
+}
+.bCardL{
+    width: 600px;
+    height: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*  Blog Card  */
+.blogCardWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Larger Blog Cards */
+.blogCardL{
+    margin-bottom: 300px;
+    padding: 5px;
+    height: 650px;
+    width: 600px;
+    color: black;
+}
+.blogCardImgL{
+    height: auto;
+    width: 600px
+}
+.blogCardBodyL{
+    align-items: center;
+    text-align: center;
+    width: 600px;
+}
+.bCBHeading{
+    flex-direction: row;
+    width: 600px;
+    height: 70px;
+    text-align: center;
+}
+.bCBTitleL{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #3b3b3b;
+    text-align: center;
+}
+.bCBTextL{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #3b3b3b;
+    width: 600px;
+    text-align: center;
+}
+.blogCard{
+    margin: 10px;
+    padding: 5px;
+    height: 590px;
+    width: 390px;
+    color: black;
+}
+/* Smaller Blog Cards */
+.blogCardImg{
+    height: 500px;
+    width:auto
+}
+.blogCardBody{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+}
+.bCBTitle{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #3b3b3b;
+}
+.bCBText{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #3b3b3b;
 }

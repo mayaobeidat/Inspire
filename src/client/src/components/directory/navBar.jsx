@@ -24,6 +24,11 @@ export default function NavBar() {
           </NavLink>
         </li>
         <li>
+          <NavLink className="nlB" to="/blogs">
+            Blogs
+          </NavLink>
+        </li>
+        <li>
           <NavLink className="nlB" to="/">
             Products
           </NavLink>
