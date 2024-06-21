@@ -5,9 +5,11 @@ function ProductCard({ product }) {
   return (
     <div className="productWrapper" key={product.id}>
       <ul className="product-list">
-        <div className="card-image-container">
-          <img className="cardCoverImg" src={product.image} alt={product.name} />
-        </div>
+        <Link className="link" to={`/product/${product.id}`}>
+          <div className="card-image-container">
+            <img className="cardCoverImg" src={product.image} alt={product.name} />
+          </div>
+        </Link>
         <h1 className="cardName">{product.name}</h1>
         <p className="cardDesigner">{product.designer}</p>
         <p className="cardPrice">${product.price}</p>
