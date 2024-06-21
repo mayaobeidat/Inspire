@@ -1,51 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-// Assuming you have a token stored in localStorage or sessionStorage
-const token = localStorage.getItem('token'); // Retrieve token from storage
-
-// Function to fetch account information
-const fetchAccountInfo = async () => {
-  try {
-    const response = await fetch('https://localhost:5173/auth/login', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`, // Send token in Authorization header
-        'Content-Type': 'application/json'
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch account information');
-    }
-
-    const accountData = await response.json();
-    console.log('Account Information:', accountData);
-    return accountData; // Return account data for further processing
-  } catch (error) {
-    console.error('Error fetching account information:', error.message);
-    // Handle error gracefully (e.g., show error message to user)
-    return null;
-  }
-};
-
-// Example usage
-fetchAccountInfo();
-
+const token = localStorage.getItem('token');
 
 const AccountPage = () => {
-  const user = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    address: '123 Main St, Cityville',
-    username: 'shsdfrjg',
-    orders: [
-      { id: 1, date: '2024-06-10', total: 55.0 },
-      { id: 2, date: '2024-06-15', total: 78.5 },
-    ],
-  };
+  const [user, setUser] = useState(null);
+  useEffect(()=>{
+    const fetchAccountInfo = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/auth/me', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+        });
+    
+        if (!response.ok) {
+          throw new Error('Failed to fetch account information');
+        }
+    
+        const accountData = await response.json();
+        console.log('Account Information:', accountData);
+        setUser(accountData)
+      } catch (error) {
+        console.error('Error fetching account information:', error);
+        return null;
+      }
+    };
+  fetchAccountInfo()
+  },[]);
 
   return (
     <div className="account-page">
+      {user ? 
+      <div>
       <h1>Welcome, {user.name}!</h1>
 
       <section className="account-details">
@@ -56,7 +44,8 @@ const AccountPage = () => {
         <p><strong>Username:</strong> {user.username}</p>
       </section>
 
-      <section className="order-history">
+
+      {/* <section className="order-history">
         <h2>Order History</h2>
         {user.orders.length > 0 ? (
           <ul>
@@ -71,7 +60,10 @@ const AccountPage = () => {
         ) : (
           <p>No orders yet.</p>
         )}
-      </section>
+      </section> */}
+      </div>
+      :<p>Loading...</p>
+      } 
     </div>
   );
 };
