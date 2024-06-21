@@ -106,7 +106,7 @@ function AllProducts() {
             ? 
               <ul className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
                 <button onClick={() => paginate(currentPage - 1)} className="page-link">
-                  <a href="#" class="previous">&#8249;</a>
+                  <a href="#" className="previous">&#8249;</a>
                 </button>
               </ul>
             : <ul></ul>
@@ -123,7 +123,7 @@ function AllProducts() {
               ?
               <ul className={`page-item ${currentPage === Math.ceil(filteredProducts.length / productsPerPage) ? 'disabled' : ''}`}>
                 <button onClick={() => paginate(currentPage + 1)} className="page-link">
-                  <a href="#" class="next">&#8250;</a>
+                  <a href="#" className="next">&#8250;</a>
                 </button>
               </ul>
             : <ul></ul>
