@@ -28,7 +28,7 @@ function AllProducts() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [value, setValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(10); // Products per page
+  const [productsPerPage] = useState(15); // Products per page
   const [noSearchResults, setNoSearchResults] = useState(false);
   const [error, setError] = useState(null);
 

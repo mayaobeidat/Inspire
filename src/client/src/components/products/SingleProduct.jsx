@@ -67,9 +67,10 @@ function SingleProduct() {
               <h2 className="sPdesigner">{product.designer}</h2>
               <ul className="sPdescription">{product.description}</ul>
               <p>${product.price}</p>
-              <div>
-                <label htmlFor="quantity">Quantity:</label>
+              <div className="qntySingle">
+                <label htmlFor="quantity">Quantity: </label>
                 <input
+                  className="qnty"
                   type="number"
                   id="quantity"
                   value={quantity}

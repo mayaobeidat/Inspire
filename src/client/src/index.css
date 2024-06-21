@@ -105,32 +105,33 @@ a:active {
 .search-bar-container {
     width: 100%;
     height: 350px;
-    background-image: url(https://hips.hearstapps.com/hmg-prod/images/elle-off-white-fall-2018-1520004790.jpg);
+    background-image: url(https://vmagazine.com/wp-content/uploads/2020/09/DIOR_SPRING-SUMMER-2021_KEY-LOOKS_LOOK1-scaled.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -70px;
+    background-position-y: -250px;
 }
 .searchBar {
     text-align: center;
-    margin-top: 100px;
+    justify-content: center;
+    margin-top: 10px;
     font-family: monospace;
     font-size: xx-large;
-    color: rgb(255, 255, 255);
+    color: white;
 }
 .sBar {
     width: 100%;
     max-width: 500px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 25px;
     outline: none;
     transition: border-color 0.3s;
-    border-color: rgb(224, 224, 224);
-    background-color: aliceblue;
+    background-color: rgb(238, 243, 247);
+    background-color: rgb(238, 243, 247);
 }
 .sBar:focus {
     border-color: #000;
@@ -225,11 +226,14 @@ a:active {
 .pagination{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .pagination-buttons{
     display: flex;
     flex-direction: row;
-    width: 300px;
+    padding-left: 0px;
+    padding-right: 25px;
 }
 
 .page-link{
@@ -287,6 +291,14 @@ a:active {
 .single-image {
     height: 700px;
     width: auto;
+}
+.qntySingle{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.qnty{
+    border-width: 2px;
+    width: 40px;
 }
 .backBtn {
     height: 25px;
