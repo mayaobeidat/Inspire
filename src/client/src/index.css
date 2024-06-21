@@ -177,12 +177,18 @@ a:active {
     justify-content: center;
     height: 250px;
     width: 200px;
+    overflow: hidden; 
+    transition: transform 0.3s ease-in-out; 
 }
 .cardCoverImg {
     align-items: center;
     height: 100%;
     width: auto;
     object-fit: cover;
+    transition: transform 0.3s ease-in-out; 
+}
+.card-image-container:hover .cardCoverImg {
+    transform: scale(1.1); 
 }
 .cardName {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -327,7 +333,6 @@ a:active {
 }
 
 /* Cart Page */
-/* Cart Page */
 .cart-page {
     padding: 80px 20px 20px 20px;
     text-align: center;
@@ -401,7 +406,6 @@ a:active {
     font-weight: bold;
 }
 
-
 /* --- Andys Home Page Styling --- */
 .container {
     margin-top: 50px;
@@ -435,13 +439,16 @@ a:active {
     width: 150px; 
     text-align: center;
     justify-content: space-around;
-
 }
   
 .nav-image {
     width: auto; 
     height: 250px;
     border-radius: 5px;
+    transition: transform 0.3s ease-in-out; 
+}
+.nav-image:hover {
+    transform: scale(1.1); 
 }
   
 .nav-text {
@@ -530,7 +537,7 @@ a:active {
 }
 .blogCardImgL {
     height: auto;
-    width: 600px;
+    width: 600px
 }
 .blogCardBodyL {
     align-items: center;
@@ -566,7 +573,7 @@ a:active {
 /* Smaller Blog Cards */
 .blogCardImg {
     height: 500px;
-    width: auto
+    width:auto
 }
 .blogCardBody {
     display: flex;
@@ -586,5 +593,4 @@ a:active {
     font-weight: 100;
     color: #3b3b3b;
 }
-
 
