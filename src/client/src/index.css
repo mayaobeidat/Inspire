@@ -78,7 +78,7 @@ a:active {
 
 .cart-count {
     position: absolute;
-    top: 5px; /* Adjusted to lower the cart count */
+    top: 5px; 
     right: -8px;
     background-color: white;
     color: rgb(73, 73, 73);
@@ -327,6 +327,7 @@ a:active {
 }
 
 /* Cart Page */
+/* Cart Page */
 .cart-page {
     padding: 80px 20px 20px 20px;
     text-align: center;
@@ -359,6 +360,11 @@ a:active {
     flex-direction: column;
     align-items: flex-start;
 }
+
+.cart-item-details input[type="number"] {
+    width: 60px;
+    margin-left: 10px;
+}
   
 .cart-button, .remove-button, .view-button {
     height: 25px;
@@ -387,6 +393,12 @@ a:active {
 
 .cart-button:hover, .remove-button:hover, .view-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 
@@ -574,6 +586,5 @@ a:active {
     font-weight: 100;
     color: #3b3b3b;
 }
-
 
 
