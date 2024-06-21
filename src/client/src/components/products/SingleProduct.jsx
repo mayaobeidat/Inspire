@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../api/cartSlice"; // Import the addToCart action
+import Snackbar from '@mui/material/Snackbar';
+
 
 function SingleProduct() {
   const { id } = useParams();
@@ -33,8 +35,18 @@ function SingleProduct() {
     fetchProduct();
   }, [id]);
 
+  const [open, setOpen] = React.useState(false);
+
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+    setOpen(true);
+  };
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   const handleGoToCart = () => {
@@ -48,7 +60,7 @@ function SingleProduct() {
   if (error) {
     return <div>{error}</div>;
   }
-  // onClick={()=>alert("Added to Cart!")}
+
   return (
     <div className="singleProductWrapper">
       {product && (
@@ -60,6 +72,12 @@ function SingleProduct() {
               <ul className="sPdescription">{product.description}</ul>
               <p>${product.price}</p>
               <button className="cart-button" onClick={handleAddToCart}>Add to Cart</button> {/* Apply cart-button class */}
+                <Snackbar
+                  open={open}
+                  autoHideDuration={1500}
+                  onClose={handleClose}
+                  message="Added to cart!"
+                />
               <button className="cart-button" onClick={handleGoToCart}>Go to Cart</button> {/* Apply cart-button class */}
               <NavLink to={"/"}><button className="backBtn">Back</button></NavLink>
             </div>
