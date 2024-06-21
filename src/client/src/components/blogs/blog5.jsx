@@ -1,21 +1,19 @@
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
  
-const Blog1 = () => {
+const Blog5 = () => {
     return (
         <div className="blogCardWrapper">
-            <NavLink to={"https://www.ssense.com/en-us/editorial/fashion/menswear-ss25-pitti-uomo-marine-serre"}>
-                <Card className="blogCardL">
+            <NavLink to={"https://www.ssense.com/en-us/editorial/fashion/nicklas-skovgaard-is-full-of-questions"}>
+                <Card className="blogCard">
                     <Card.Img
-                        className="blogCardImgL"
+                        className="blogCardImg"
                         src=
-                        "https://res.cloudinary.com/ssenseweb/image/upload/w_1280,q_90,f_auto,dpr_auto/v1718828902/idh1ldl6324v1mjc9cae.jpg"
+                        "https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1718301293/l14qjbxbx6h45ob7hwww.jpg"
                     />
-                    <Card.Body className="blogCardBodyL">
-                        <div className=".bCBHeading">
-                            <Card.Title className="bCBTitleL"> Fashion | THE NO-SHOW SOCKS CONUNDRUM; OR, WHAT IS MENSWEAR GOING TO DO WITH ITSELF?</Card.Title>
-                            <Card.Text className="bCBTextL">There was an unmistakable air of anxiety at Milan Men's Feshion Week. How does one escape?</Card.Text>
-                        </div>
+                    <Card.Body className="blogCardBody">
+                        <Card.Title className="bCBTitle">NICKLAS SCOVGAARD IS FULL OF QUESTIONS</Card.Title>
+                        <Card.Text className="bCBText">Fashion | June 17</Card.Text>
                     </Card.Body>
                 </Card>
             </NavLink>
@@ -23,4 +21,4 @@ const Blog1 = () => {
     );
 };
  
-export default Blog1;
+export default Blog5;

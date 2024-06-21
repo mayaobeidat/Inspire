@@ -16,19 +16,19 @@ const Blogs = () => {
                 </div>
                 <div className="bCardList">
                     <div className="bCardL">
-                        <Blog4 />
-                    </div>
-                    <div className="bCardL">
-                        <Blog5 />
-                    </div>
-                    <div className="bCard">
                         <Blog1 />
                     </div>
-                    <div  className="bCard">
+                    <div className="bCardL">
                         <Blog2 />
                     </div>
                     <div className="bCard">
                         <Blog3 />
+                    </div>
+                    <div  className="bCard">
+                        <Blog4 />
+                    </div>
+                    <div className="bCard">
+                        <Blog5 />
                     </div>
                 </div>
             </Container>

@@ -1,21 +1,19 @@
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
  
-const Blog1 = () => {
+const Blog4 = () => {
     return (
         <div className="blogCardWrapper">
-            <NavLink to={"https://www.ssense.com/en-us/editorial/culture/atsushi-nishijima-interview-yorgos-lanthimos-photographer"}>
-                <Card className="blogCardL">
+            <NavLink to={"https://www.ssense.com/en-us/editorial/culture/gabriel-smith-interview-brat-novel"}>
+                <Card className="blogCard">
                     <Card.Img
-                        className="blogCardImgL"
+                        className="blogCardImg"
                         src=
-                        "https://res.cloudinary.com/ssenseweb/image/upload/w_1280,q_90,f_auto,dpr_auto/v1718829724/nocml6j6xqj6g9ttkuut.jpg"
+                        "https://res.cloudinary.com/ssenseweb/image/upload/w_768,q_90,f_auto,dpr_auto/v1718716438/oohvyyn9n7jpif3osdxo.jpg"
                     />
-                    <Card.Body className="blogCardBodyL">
-                        <div className=".bCBHeading">
-                            <Card.Title className="bCBTitleL"> Culture |       ATSUSHI NISHIJIMA IS THREE FEET FROM STARDOM</Card.Title>
-                            <Card.Text className="bCBTextL">Yorgos Lanthimos's go-to photographer discusses his multi-film collaboration capturing the intimacy, horror, and beauty of the director's storytelling.</Card.Text>
-                        </div>
+                    <Card.Body className="blogCardBody">
+                        <Card.Title className="bCBTitle">HOW GABRIEL SMITH WROTE THE BOOK OF THE SUMMER</Card.Title>
+                        <Card.Text className="bCBText">Culture | June 18</Card.Text>
                     </Card.Body>
                 </Card>
             </NavLink>
@@ -23,4 +21,4 @@ const Blog1 = () => {
     );
 };
  
-export default Blog1;
+export default Blog4;

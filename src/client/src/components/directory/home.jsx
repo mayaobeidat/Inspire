@@ -13,9 +13,6 @@ export default function Home() {
         className="background-image" />
       </NavLink>
         <div className="navigation">
-          {/* <div>
-            <p>Suggested For You</p>
-          </div> */}
           <div className="nav-item">
             <NavLink to={'/product/11'}><img src="https://img.ssensemedia.com/images/g_center,f_auto/241378F109008_1/ann-demeulemeester-white-jula-shirt.jpg" alt="Crew Neck" className="nav-image" /></NavLink>
             <div className="nST"></div>
@@ -40,11 +37,15 @@ export default function Home() {
             <NavLink to={'/product/16'}><img src="https://img.ssensemedia.com/images/g_center,f_auto/241404F111008_1/versace-pink-contrasto-medusa-95-tank-top.jpg" alt="Ankle Pants" className="nav-image" /></NavLink>
             <div className="nST"></div>
         </div>
+    </div>
+      <div className='bottomHome'>
+        <p>Suggested For You</p>
       </div>
-        <div className='bottomHome'>
-          {/* <button onClick={() => navigate("/AllProducts")}>About</button> */}
-          <p>Suggested For You</p>
-        </div>
+      <NavLink to={'/blogs'}><img
+        src="https://www.vogue.nl/wp-content/uploads/2024/02/vogue-maart-2024-covers-social-912x513.jpg"
+        alt="Background Image"
+        className="background-image-b" />
+      </NavLink>
     </div>
    );
  }
