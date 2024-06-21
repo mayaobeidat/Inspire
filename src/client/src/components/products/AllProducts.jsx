@@ -23,8 +23,10 @@ function ProductCard({ product }) {
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
-  const [value, setValue] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [value, setValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(10); // Products per page
   const [noSearchResults, setNoSearchResults] = useState(false);
   const [error, setError] = useState(null);
 
@@ -63,6 +65,17 @@ function AllProducts() {
     setValue(e.target.value);
   };
 
+  // Pagination logic
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="contentWrapper">
       <div className="search-bar-container">
@@ -79,15 +92,36 @@ function AllProducts() {
       <div className="product-list-wrapper">
         {error && <h2>{error}</h2>}
         {noSearchResults && !error && <h2>No products match search</h2>}
-        {filteredProducts.map((product) => (
+        {currentProducts.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
+      </div>
+      {/* Pagination controls */}
+      <div className="pagination">
+        {filteredProducts.length > productsPerPage && (
+          <ul className="pagination-buttons">
+            <ul className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+              <button onClick={() => paginate(currentPage - 1)} className="page-link">
+                <a href="#" class="previous">&#8249;</a>
+              </button>
+            </ul>
+            {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, index) => (
+              <ul key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                <button onClick={() => paginate(index + 1)} className="page-link">
+                  {index + 1}
+                </button>
+              </ul>
+            ))}
+            <ul className={`page-item ${currentPage === Math.ceil(filteredProducts.length / productsPerPage) ? 'disabled' : ''}`}>
+              <button onClick={() => paginate(currentPage + 1)} className="page-link">
+                <a href="#" class="next">&#8250;</a>
+              </button>
+            </ul>
+          </ul>
+        )}
       </div>
     </div>
   );
 }
 
 export default AllProducts;
-
-
-
