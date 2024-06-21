@@ -64,51 +64,80 @@ a:active {
     color: #000000;
 }
 
+.cart-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    font-size: 24px;
+    color: black;
+}
+
+.cart-count {
+    position: absolute;
+    top: 5px;
+    right: -8px;
+    background-color: rgb(255, 0, 251);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 /* --- Products Component --- */
 /* Search Bar */
-.search-bar-container{
-    width: 1325px;
+.search-bar-container {
+    width: 100%;
     height: 350px;
     background-image: url(https://hips.hearstapps.com/hmg-prod/images/elle-off-white-fall-2018-1520004790.jpg);
+    display: flex;
     justify-content: center;
     align-items: center;
-
-}
-.search-bar-container, .background-image{
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -70px;
 }
-.searchBar{
+.searchBar {
     text-align: center;
-    margin: 10px;
     margin-top: 100px;
-    margin-right: 50px;
     font-family: monospace;
     font-size: xx-large;
     color: rgb(255, 255, 255);
 }
-.sBar{
+.sBar {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
     border-color: rgb(224, 224, 224);
     background-color: aliceblue;
 }
+.sBar:focus {
+    border-color: #000;
+}
 
 /* Products - All */
-.contentWrapper{
+.contentWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 75px;
     margin-bottom: 75px;
 }
-.product-list-wrapper{
+.product-list-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-between;
 }
-.productWrapper{
+.productWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -142,29 +171,29 @@ a:active {
     width: auto;
     object-fit: cover;
 }
-.cardName{
+.cardName {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: medium;
     height: 30px;
 }
-.cardDesigner{
+.cardDesigner {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: medium;
     color: black;
     margin-top: 30px;
 }
-.cardPrice{
+.cardPrice {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: medium;
     color: black;
     font-weight: lighter;
 }
-.buttonWrapper{
+.buttonWrapper {
     justify-content: center;
     align-items: center;
     margin-top: 0%;
 }
-.border_button{
+.border_button {
     height: 25px;
     width: 209px;
     background-color: black;
@@ -175,40 +204,39 @@ a:active {
 }
 
 /* Products - Individual */
-.singleProductWrapper{
+.singleProductWrapper {
     padding: 40px;
     margin-left: 20px;
     margin-right: 20px;
     height: 680px;
-
 }
-.single-product-wrapper{
+.single-product-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.single-product-description{
+.single-product-description {
     width: 400px;
     justify-content: center;
     align-content: center;
     text-align: center;
 }
-.sPdesigner{
+.sPdesigner {
     text-align: center;
 }
-.sPdescription{
+.sPdescription {
     padding: 10px;
     justify-content: center;
     text-align: center;
 }
-.single-image-container{
+.single-image-container {
     padding: 10px;
 }
-.single-image{
+.single-image {
     height: 700px;
     width: auto;
 }
-.backBtn{
+.backBtn {
     height: 25px;
     width: 209px;
     background-color: black;
@@ -216,32 +244,31 @@ a:active {
     border: none;
     box-shadow: none;
     cursor: pointer;
-
 }
 
-/*  --- Account Component--- */
+/* --- Account Component--- */
 /* Login Page */
-.login-page{
+.login-page {
     display: flex;
     margin: 250px;
     justify-content: center;
     text-align: center;
 }
-.login-form{
+.login-form {
     justify-content: center;
     padding: 10px;
 }
-.form-group{
+.form-group {
     border: black;
     border-radius: 0%;
     box-shadow: white;
 }
-.form-control{
+.form-control {
     background-color: white;
     height: 25px;
     width: 200px;
 }
-.login-button{
+.login-button {
     height: 25px;
     width: 209px;
     background-color: black;
@@ -249,32 +276,32 @@ a:active {
     border: none;
     box-shadow: none;
 }
-.form-submission{
+.form-submission {
     margin-top: 10px;
 }
 
 /* Register Page */
-.register-page{
+.register-page {
     display: flex;
     margin: 200px;
     justify-content: center;
     text-align: center;
 }
-.register-form{
+.register-form {
     justify-content: center;
     padding: 10px;
 }
-.form-group{
+.form-group {
     border: black;
     border-radius: 0%;
     box-shadow: white;
 }
-.form-control{
+.form-control {
     background-color: white;
     height: 25px;
     width: 200px;
 }
-.submit-btn{
+.submit-btn {
     height: 25px;
     width: 209px;
     background-color: black;
@@ -282,12 +309,12 @@ a:active {
     border: none;
     box-shadow: none;
 }
-.form-submission{
+.form-submission {
     margin-top: 10px;
 }
 
 .cart-page {
-    padding: 80px 20px 20px 20px; /* Adjust padding to ensure space below the navbar */
+    padding: 80px 20px 20px 20px; 
     text-align: center;
 }
   
@@ -368,14 +395,14 @@ a:active {
 .nav-item {
     position: relative;
     margin: 10px;
-    width: 150px; /* Adjust width as needed */
+    width: 150px; 
     text-align: center;
     justify-content: space-around;
 
 }
   
 .nav-image {
-    width: auto; /* Adjust width and height as needed */
+    width: auto; 
     height: 250px;
     border-radius: 5px;
 }
@@ -385,14 +412,14 @@ a:active {
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 2px black;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px; 
 }
   
 .button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5); /* Matches the navigation background */
+    background-color: rgba(0, 0, 0, 0.5); 
     color: white;
     border: none;
     border-radius: 5px;
@@ -405,24 +432,22 @@ a:active {
     color: #c5c5c5;
 }
 
-
-/* --- Blogs Component --- */
 /* Blog Page */
-.blogPageWrapper{
+.blogPageWrapper {
     margin: 20px;
     padding: 10px;
 }
-.blogPageContainer{
+.blogPageContainer {
     margin: 10px;
 }
-.blogheading{
+.blogheading {
     width: 1325px;
     height: 100px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
-.bHT{
+.bHT {
     text-align: center;
     margin: 10px;
     margin-top: 50px;
@@ -432,18 +457,18 @@ a:active {
     font-weight: 100;
     color: #3b3b3b;
 }
-.bCardList{
+.bCardList {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 1305px;
 }
-.bCard{
+.bCard {
     width: 400px;
     height: 600px;
     margin-top: 120px;
 }
-.bCardL{
+.bCardL {
     width: 600px;
     height: 400px;
     margin-top: 30px;
@@ -451,7 +476,7 @@ a:active {
 }
 
 /*  Blog Card  */
-.blogCardWrapper{
+.blogCardWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -459,42 +484,42 @@ a:active {
 
 }
 /* Larger Blog Cards */
-.blogCardL{
+.blogCardL {
     margin-bottom: 300px;
     padding: 5px;
     height: 650px;
     width: 600px;
     color: black;
 }
-.blogCardImgL{
+.blogCardImgL {
     height: auto;
-    width: 600px
+    width: 600px;
 }
-.blogCardBodyL{
+.blogCardBodyL {
     align-items: center;
     text-align: center;
     width: 600px;
 }
-.bCBHeading{
+.bCBHeading {
     flex-direction: row;
     width: 600px;
     height: 70px;
     text-align: center;
 }
-.bCBTitleL{
+.bCBTitleL {
     font-family: 'Times New Roman', Times, serif;
     font-weight: 100;
     color: #3b3b3b;
     text-align: center;
 }
-.bCBTextL{
+.bCBTextL {
     font-family: 'Times New Roman', Times, serif;
     font-weight: 100;
     color: #3b3b3b;
     width: 600px;
     text-align: center;
 }
-.blogCard{
+.blogCard {
     margin: 10px;
     padding: 5px;
     height: 590px;
@@ -502,11 +527,11 @@ a:active {
     color: black;
 }
 /* Smaller Blog Cards */
-.blogCardImg{
+.blogCardImg {
     height: 500px;
-    width:auto
+    width: auto
 }
-.blogCardBody{
+.blogCardBody {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -514,13 +539,14 @@ a:active {
     text-align: center;
     width: 350px;
 }
-.bCBTitle{
+.bCBTitle {
     font-family: 'Times New Roman', Times, serif;
     font-weight: 100;
     color: #3b3b3b;
 }
-.bCBText{
+.bCBText {
     font-family: 'Times New Roman', Times, serif;
     font-weight: 100;
     color: #3b3b3b;
 }
+

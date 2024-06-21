@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavBar() {
-  const token = useSelector((state) => state.auth.token); // Fixed access to token
+  const token = useSelector((state) => state.auth.token);
+  const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -61,8 +62,11 @@ export default function NavBar() {
           </>
         )}
         <li className="navBarR">
-          <NavLink to="/cart">
+          <NavLink to="/cart" className="cart-link">
             <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+            {cartItems.length > 0 && (
+              <span className="cart-count">{cartItems.length}</span>
+            )}
           </NavLink>
         </li>
       </ul>
