@@ -23,7 +23,7 @@ export default function Register() {
    const results = await addNewUser(form);
    console.log(results); 
    alert("Registration complete! Be sure to log in to access your account!")
-   navigate('/'); 
+   navigate('/login'); 
  };
 
 
