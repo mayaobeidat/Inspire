@@ -20,10 +20,7 @@ const getUserById = async (id) => {
 
 const getOrder_ProductsByUserId = async (id) => {
   try {
-    // Fetch orders by user ID
     const orders = await getOrderByUserId(id);
-
-    // Use Promise.all to resolve all promises returned by the map function
     const response = await Promise.all(
       orders.map(async (order) => {
         const products = await getOrder_ProductByOrderId(order.id);
@@ -34,12 +31,11 @@ const getOrder_ProductsByUserId = async (id) => {
         };
       })
     );
-
-    console.log(response); // Now this will log the actual resolved values
-    return response; // Return the resolved values
+    console.log(response);
+    return response;
   } catch (error) {
     console.error("Error fetching order products by user ID:", error);
-    throw error; // Re-throw the error after logging it
+    throw error;
   }
 };
 
