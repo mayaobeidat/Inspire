@@ -6,7 +6,7 @@ const {
   deleteUser,
   createUser,
   updateUser,
-  getOrderByUserId,
+  getOrder_ProductsByUserId,
 } = require("./db");
 
 router.get("/", async (req, res, next) => {
@@ -47,7 +47,7 @@ router.put("/:id", async (req, res, next) => {
 
 router.get("/:id/orders", async (req, res, next) => {
   try {
-    res.send(await getOrderByUserId(req.params.id));
+    res.send(await getOrder_ProductsByUserId(req.params.id));
   } catch (err) {
     next(err);
   }

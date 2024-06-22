@@ -18,6 +18,32 @@ const getUserById = async (id) => {
   return response.rows[0];
 };
 
+const getOrder_ProductsByUserId = async (id) => {
+  try {
+    // Fetch orders by user ID
+    const orders = await getOrderByUserId(id);
+
+    // Use Promise.all to resolve all promises returned by the map function
+    const response = await Promise.all(
+      orders.map(async (order) => {
+        const products = await getOrder_ProductByOrderId(order.id);
+        return {
+          order_id: order.id,
+          date_time_purchased: order.date_time_purchased,
+          products: products
+        };
+      })
+    );
+
+    console.log(response); // Now this will log the actual resolved values
+    return response; // Return the resolved values
+  } catch (error) {
+    console.error("Error fetching order products by user ID:", error);
+    throw error; // Re-throw the error after logging it
+  }
+};
+
+
 const getUserByUsername = async (username) => {
   const response = await client.query(`SELECT * FROM users WHERE username = $1`, [username]);
   return response.rows[0];
@@ -132,13 +158,11 @@ const getOrderById = async (id) => {
 };
   
 const getOrderByUserId = async (params_id) => {
-  const cart_response = await client.query(
+  const response = await client.query(
     `SELECT * FROM orders WHERE user_id = $1`,
     [params_id]
   );
-  return {
-    cart: cart_response.rows,
-  };
+  return response.rows;
 };
 
 const deleteOrderById = async (id) => {
@@ -174,6 +198,7 @@ module.exports = {
   getAllUsers,
   getUserById,
   getUserByUsername,
+  getOrder_ProductsByUserId,
   deleteUser,
   createUser,
   updateUser,
