@@ -81,7 +81,7 @@ function SingleProduct() {
               <button className="cart-button" onClick={handleAddToCart}>Add to Cart</button>
               <Snackbar
                 open={open}
-                autoHideDuration={1500}
+                autoHideDuration={2000}
                 onClose={handleClose}
                 message="Added to cart!"
               />
