@@ -23,7 +23,6 @@ export default function Login() {
     const result = await login(form);
     console.log("RESULT", result);
     dispatch(setToken(result.data.token))
-    // navigate("/auth/me");
   };
 console.log("login")
   useEffect(() => {

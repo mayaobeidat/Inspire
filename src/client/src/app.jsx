@@ -32,11 +32,11 @@ function App() {
       <Routes>
         <Route path="/" element={<AllProducts />} />
         <Route path="/product/:id" element={<SingleProduct />} />
-        <Route path="/login" element={<Login />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home/>} />
         <Route path="/auth/me" element={<Account token= {userToken} />} />
-        <Route path="/cart" element={<Cart />} /> {/* Add Cart route */}
+        <Route path="/cart" element={<Cart />} />
         <Route path="/blogs" element={<Blogs />} />
       </Routes>
     </div>
