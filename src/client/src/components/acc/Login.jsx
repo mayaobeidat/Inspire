@@ -1,9 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../api/sliceAuth";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "../../api/sliceAuth";
-import { NavLink } from "react-router-dom";
 
 export default function Login() {
 

@@ -70,20 +70,19 @@ const Cart = () => {
                      <FontAwesomeIcon icon={faTrash} />
                    </button>
                  </li>
-               ))}
-             </ul>
-             <div className="cart-total">
-               <h3>Total: ${cartTotal.toFixed(2)}</h3>
-             </div>
-           </>
-         )}
-         <button className="cart-button" onClick={handleContinueShopping}>Continue Shopping</button>
-       </div>
-     );
-    };
+            ))}
+          </ul>
+          <div className="cart-total">
+            <h3>Total: ${cartTotal.toFixed(2)}</h3>
+          </div>
+        </>
+      )}
+      <button className="cart-button" onClick={handleContinueShopping}>Continue Shopping</button>
+    </div>
+  );
+};
     
-    
-    export default Cart;
+export default Cart;
     
     
     

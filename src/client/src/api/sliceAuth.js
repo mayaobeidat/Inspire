@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { api } from "./api";
-// import { query } from "express";
 
 const authApi = api.injectEndpoints ({
     endpoints: (builder) => ({
@@ -33,7 +32,6 @@ const AuthSlice = createSlice({
     name: "auth",
     initialState: {
       token: localStorage.getItem("token") || null ,
-    //   reservations: [],
     },
     reducers: {
         setToken: (state, action) => {

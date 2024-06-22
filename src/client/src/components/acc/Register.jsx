@@ -1,7 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { clearToken, useRegisterMutation } from "../../api/sliceAuth";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 
 export default function Register() {
  const [addNewUser] = useRegisterMutation();
