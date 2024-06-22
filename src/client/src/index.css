@@ -653,3 +653,61 @@ a:active {
     color: #3b3b3b;
 }
 
+
+/* --- Account Component --- */
+/* Account Page */
+.account-page{
+    justify-content: center;
+    margin: 75px;
+}
+.accountWrapper{
+    padding: 5px;
+}
+/* Account Details */
+.accountDetailsWrapper{
+    margin-top: -5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #3b3b3b;
+    text-align: left;
+}
+/* Order Details */
+.contentOrder{
+    margin-top: -45px;
+}
+.orderHistory{
+    display: inline;
+    height: 100px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #3b3b3b;
+    text-align: left;
+}
+.orderHistoryT{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #3b3b3b;
+    text-align: left;
+}
+.orderItemsWrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+}
+.orderHistoryProducts{
+    display: flex;
+    justify-content: space-between;
+}
+.orderHPContent{
+    margin-right: 50px;
+    padding: 10px;
+}
+.orderProductImage{
+    height: 120px;
+    width: auto;
+}
+.cart-total{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #3b3b3b;
+    text-align: right;
+}

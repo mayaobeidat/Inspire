@@ -38,7 +38,7 @@ export default function Register() {
             type="text"
             className="form-control"
             placeholder="Name"
-            name="Name"
+            name="name"
             onChange={onChange}
           />
         </div>
