@@ -7,9 +7,11 @@ export default function Home() {
 
    return (
     <div className="container">
-      <NavLink to={'/'}><img
-        src="https://is4.revolveassets.com/images/up/2024/June/062024_rw_sophisticated_01_2x.jpg"
+      <NavLink to={'/'}><video
+        autoPlay loop playsInline
+        src="https://www.dior.com/couture/var/dior/storage/original/video/27b4cb604c5a472545e58cd64ef6fdc8.mp4"
         alt="Background Image"
+        preload='metadata'
         className="background-image" />
       </NavLink>
         <div className="navigation">
@@ -47,10 +49,10 @@ export default function Home() {
         </div>
     </div>
       <div className='bottomHome'>
-        <p>Suggested For You</p>
+        <p>New In</p>
       </div>
       <NavLink to={'/blogs'}><img
-        src="https://www.vogue.nl/wp-content/uploads/2024/02/vogue-maart-2024-covers-social-912x513.jpg"
+        src="https://wwd.com/wp-content/uploads/2023/03/230220_DIOR_PF23_Main-Campaign_SPDP-Priority-Images9.jpg"
         alt="Background Image"
         className="background-image-b" />
       </NavLink>
