@@ -3,9 +3,10 @@ import { useLoginMutation } from "../../api/sliceAuth";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "../../api/sliceAuth";
+import { NavLink } from "react-router-dom";
 
 export default function Login() {
-  // const { token } = useSelector((state) => state.sliceAuth);
+
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ console.log("login")
             </button>
             <p>
               No Account?
-              <Link to="/auth/register"> Sign up</Link>
+              <NavLink to="/register"> Sign up</NavLink>
             </p>
           </div>
         </form>
