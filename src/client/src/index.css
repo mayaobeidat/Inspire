@@ -104,14 +104,14 @@ a:active {
 /* Search Bar */
 .search-bar-container {
     width: 100%;
-    height: 350px;
-    background-image: url(https://vmagazine.com/wp-content/uploads/2020/09/DIOR_SPRING-SUMMER-2021_KEY-LOOKS_LOOK1-scaled.jpg);
+    height: 375px;
+    background-image: url(https://www.datocms-assets.com/55010/1685067682-1684960794-dd.jpg?auto=format%2Ccompress&cs=srgb);
     display: flex;
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -250px;
+    background-position-y: -155px;
 }
 .searchBar {
     text-align: center;
@@ -344,7 +344,8 @@ a:active {
     margin-top: 10px;
 }
 
-/* Register Page */
+
+/* --- Register Page --- */
 .register-page {
     display: flex;
     margin: 200px;
@@ -377,7 +378,8 @@ a:active {
     margin-top: 10px;
 }
 
-/* Cart Page */
+
+/* --- Cart Page --- */
 .cart-page {
     padding: 80px 20px 20px 20px;
     text-align: center;
@@ -451,7 +453,8 @@ a:active {
     font-weight: bold;
 }
 
-/* --- Andys Home Page Styling --- */
+
+/* ---  Home Page  --- */
 .container {
     margin-top: 50px;
     text-align: center;
@@ -529,6 +532,7 @@ a:active {
     color: #c5c5c5;
 }
 
+/* --- Blog Component --- */
 /* Blog Page */
 .blogPageWrapper {
     margin: 20px;
@@ -580,6 +584,7 @@ a:active {
     margin-right: 55px;
 
 }
+
 /* Larger Blog Cards */
 .blogCardL {
     margin-bottom: 300px;
@@ -623,6 +628,7 @@ a:active {
     width: 390px;
     color: black;
 }
+
 /* Smaller Blog Cards */
 .blogCardImg {
     height: 500px;
