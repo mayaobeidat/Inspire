@@ -6,8 +6,6 @@ const router = express.Router();
 
 const JWT_SECRET = "fashionista"; 
 
-
-
 //register
 router.post("/register", async (req, res) => {
   const { name, email, address, username, password } = req.body;
@@ -88,49 +86,3 @@ function authenticateToken(req, res, next) {
 }
 
 module.exports = { router, authenticateToken };
-
-
-// fix the login path to return proper data,, currently returning object
-
-// router.post("/login", async (req, res) => {
-//   const { username, password } = req.body;
-//   try {
-//     const user = await getUserByUsername(username);
-//     if (!user) return res.status(400).json({ message: "User not found" });
-
-//     const match = await bcrypt.compare(password, user.password);
-//     if (match) {
-//       const accessToken = jwt.sign({ username: user.username, id: user.id }, JWT_SECRET);
-//       res.json({ accessToken });
-//     } else {
-//       res.status(403).json({ message: "Password is incorrect" });
-//     }
-//   } catch (err) {
-//     res.status(500).json({ message: "Failed log in" });
-//   }
-// });
-
-// middleware
-// const authenticateToken = async (token)=>{
-//   let id;
-//   try{
-//       const payload = await  jwt.verify(token, JWT);
-//       id = payload.id;
-//   }catch(ex){
-//       const error = Error("not authorized")
-//       error.status = 401;
-//       throw error
-//   }
-
-//   const response = await client.query(`SELECT id, username 
-//           FROM users WHERE id=$1`, [id]);
-
-//   if(!response.rows.length){
-//       const error = Error("not authorized")
-//       error.status = 401;
-//       throw error
-//   }
-
-//   return response.rows[0]
-// }
-
