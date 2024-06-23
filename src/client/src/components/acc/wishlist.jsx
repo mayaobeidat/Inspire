@@ -1,9 +1,16 @@
-// Wishlist.jsx
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromWishlist } from '../../api/wishlistSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function Wishlist() {
   const wishlist = useSelector(state => state.wishlist.items);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromWishlist = (item) => {
+    dispatch(removeFromWishlist(item.id));
+  };
 
   return (
     <div className='contentWrapper'>
@@ -14,22 +21,30 @@ function Wishlist() {
         ) : (
           <ul className="wishlist-list">
             {wishlist.map((item) => (
-              <div className='productWrapper'>
-              <ul key={item.id} className="wishlist-item">
-                <div className='wishCoverImg'>
-                  <img className='wishImg' src={item.image} alt={item.name} />
+              <ul key={item.id} className='productWrapper'>
+                <div className='wishlist-item'>
+                  <div className='wishCoverImg'>
+                    <img className='wishImg' src={item.image} alt={`${item.name} by ${item.designer}`} />
+                  </div>
+                  <button 
+                    className="wishlist_button"
+                    onClick={() => handleRemoveFromWishlist(item)}>
+                    <FontAwesomeIcon icon={faHeart} className='wishlist_button_icon' />
+                  </button>
+                  <div className='wishText'>
+                    <h5>{item.name}</h5>
+                    <p>{item.designer}</p>
+                    <p>${item.price}</p>
+                  </div>
+                  <div>
+                  </div>
                 </div>
-                <h2>{item.name}</h2>
-                <p>{item.designer}</p>
-                <p>${item.price}</p>
               </ul>
-              </div>
             ))}
           </ul>
         )}
       </div>
     </div>
-
   );
 }
 
