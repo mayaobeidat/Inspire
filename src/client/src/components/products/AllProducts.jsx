@@ -21,7 +21,7 @@ function ProductCard({ product, onAddToWishlist }) {
             <img className="cardCoverImg" src={product.image} alt={product.name} />
           </div>
         </Link>
-        <h1 className="cardName">{product.name}</h1>
+        <h4 className="cardName">{product.name}</h4>
         <p className="cardDesigner">{product.designer}</p>
         <p className="cardPrice">${product.price}</p>
         <div className="buttonWrapper">
