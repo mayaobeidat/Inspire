@@ -14,6 +14,7 @@ function Wishlist() {
         ) : (
           <ul className="wishlist-list">
             {wishlist.map((item) => (
+              <div className='productWrapper'>
               <ul key={item.id} className="wishlist-item">
                 <div className='wishCoverImg'>
                   <img className='wishImg' src={item.image} alt={item.name} />
@@ -22,6 +23,7 @@ function Wishlist() {
                 <p>{item.designer}</p>
                 <p>${item.price}</p>
               </ul>
+              </div>
             ))}
           </ul>
         )}

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToWishlist } from "../../api/wishlistSlice"; // Adjust the path as necessary
+import { addToWishlist } from "../../api/wishlistSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function ProductCard({ product, onAddToWishlist }) {
   const dispatch = useDispatch();
@@ -27,10 +29,9 @@ function ProductCard({ product, onAddToWishlist }) {
             <button className="border_button">See info</button>
           </Link>
           <button 
-            className="border_button wishlist_button"
-            onClick={handleAddToWishlist}
-          >
-            Add to Wishlist
+            className="wishlist_button"
+            onClick={handleAddToWishlist}>
+            <FontAwesomeIcon icon={faHeart} className='wishlist_button'/>
           </button>
         </div>
       </ul>
@@ -121,25 +122,25 @@ function AllProducts() {
         {filteredProducts.length > productsPerPage && (
           <ul className="pagination-buttons">
             {currentPage > 1 && (
-              <li className="page-item">
+              <ul className="page-item">
                 <button onClick={() => paginate(currentPage - 1)} className="page-link">
                   <span className="previous">&#8249;</span>
                 </button>
-              </li>
+              </ul>
             )}
             {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, index) => (
-              <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+              <ul key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                 <button onClick={() => paginate(index + 1)} className="page-link">
                   {index + 1}
                 </button>
-              </li>
+              </ul>
             ))}
             {currentPage < Math.ceil(filteredProducts.length / productsPerPage) && (
-              <li className="page-item">
+              <ul className="page-item">
                 <button onClick={() => paginate(currentPage + 1)} className="page-link">
                   <span className="next">&#8250;</span>
                 </button>
-              </li>
+              </ul>
             )}
           </ul>
         )}
