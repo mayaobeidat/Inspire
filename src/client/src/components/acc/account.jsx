@@ -69,7 +69,6 @@ const AccountPage = () => {
       {user && orders ? 
         <div className='accountWrapper'>
           <h1 className='welcome'>Welcome, {user.name}!</h1>
-
           <section className="account-details">
             <h2>Account Details</h2>
             <ul className='accountDetailsWrapper'>

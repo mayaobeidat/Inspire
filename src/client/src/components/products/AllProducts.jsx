@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToWishlist } from "../../api/wishlistSlice"; // Adjust the path as necessary
 
-function ProductCard({ product }) {
+function ProductCard({ product, onAddToWishlist }) {
+  const dispatch = useDispatch();
+
+  const handleAddToWishlist = () => {
+    dispatch(addToWishlist(product));
+    alert(`${product.name} has been added to your wishlist!`);
+  };
+
   return (
     <div className="productWrapper" key={product.id}>
       <ul className="product-list">
@@ -17,23 +26,30 @@ function ProductCard({ product }) {
           <Link className="link" to={`/product/${product.id}`}>
             <button className="border_button">See info</button>
           </Link>
+          <button 
+            className="border_button wishlist_button"
+            onClick={handleAddToWishlist}
+          >
+            Add to Wishlist
+          </button>
         </div>
       </ul>
     </div>
   );
 }
 
+
 function AllProducts() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [value, setValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(15);
   const [noSearchResults, setNoSearchResults] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function getAllProducts() {
+    async function fetchAllProducts() {
       try {
         const response = await fetch("http://localhost:8080/api/products", {
           headers: {
@@ -50,21 +66,21 @@ function AllProducts() {
         setError(error.message);
       }
     }
-    getAllProducts();
+    fetchAllProducts();
   }, []);
 
   useEffect(() => {
-    const searchResultArray = products.filter((product) =>
-      product.name.toLowerCase().includes(value.toLowerCase()) ||
-      product.designer.toLowerCase().includes(value.toLowerCase())
+    const results = products.filter((product) =>
+      product.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      product.designer.toLowerCase().includes(searchValue.toLowerCase())
     );
 
-    setFilteredProducts(searchResultArray);
-    setNoSearchResults(searchResultArray.length === 0);
-  }, [value, products]);
+    setFilteredProducts(results);
+    setNoSearchResults(results.length === 0);
+  }, [searchValue, products]);
 
   const handleSearchChange = (e) => {
-    setValue(e.target.value);
+    setSearchValue(e.target.value);
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -85,47 +101,46 @@ function AllProducts() {
             type="text"
             className="sBar"
             placeholder="Search for a product..."
+            value={searchValue}
             onChange={handleSearchChange}
           />
         </ul>
       </div>
       <div className="product-list-wrapper">
         {error && <h2>{error}</h2>}
-        {noSearchResults && !error && <h2>No products match search</h2>}
+        {noSearchResults && !error && <h2>No products match your search</h2>}
         {currentProducts.map((product) => (
-          <ProductCard product={product} key={product.id} />
+          <ProductCard 
+            product={product} 
+            key={product.id} 
+          />
         ))}
       </div>
       {/* Pagination controls */}
       <div className="pagination">
         {filteredProducts.length > productsPerPage && (
           <ul className="pagination-buttons">
-            { currentPage !== 1 
-            ? 
-              <ul className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+            {currentPage > 1 && (
+              <li className="page-item">
                 <button onClick={() => paginate(currentPage - 1)} className="page-link">
-                  <a href="#" className="previous">&#8249;</a>
+                  <span className="previous">&#8249;</span>
                 </button>
-              </ul>
-            : <ul></ul>
-            }
+              </li>
+            )}
             {Array.from({ length: Math.ceil(filteredProducts.length / productsPerPage) }, (_, index) => (
-              <ul key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+              <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                 <button onClick={() => paginate(index + 1)} className="page-link">
                   {index + 1}
                 </button>
-              </ul>
+              </li>
             ))}
-            {
-              currentPage !== Math.ceil(filteredProducts.length / productsPerPage) 
-              ?
-              <ul className={`page-item ${currentPage === Math.ceil(filteredProducts.length / productsPerPage) ? 'disabled' : ''}`}>
+            {currentPage < Math.ceil(filteredProducts.length / productsPerPage) && (
+              <li className="page-item">
                 <button onClick={() => paginate(currentPage + 1)} className="page-link">
-                  <a href="#" className="next">&#8250;</a>
+                  <span className="next">&#8250;</span>
                 </button>
-              </ul>
-            : <ul></ul>
-            }
+              </li>
+            )}
           </ul>
         )}
       </div>

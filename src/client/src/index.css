@@ -38,9 +38,13 @@ a:active {
     padding: 0;
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(73, 73, 73);
+
 }
 .nlL{
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(73, 73, 73);
+
 }
 .navBarL li {
     display: flex;
@@ -63,7 +67,10 @@ a:active {
     border-radius: 5px;
     color: #000000;
 }
-
+.wishlist-icon{
+    color: rgb(73, 73, 73);
+    font-size: 20px;
+}
 /* Cart Icon and Count */
 .cart-link {
     position: relative;
@@ -72,8 +79,8 @@ a:active {
 }
 
 .cart-icon {
-    font-size: 24px;
-    color: black;
+    font-size: 20px;
+    color: rgb(73, 73, 73);
 }
 
 .cart-count {
@@ -96,8 +103,8 @@ a:active {
 }
 
 .account-icon {
-    font-size: 24px;
-    color: black;
+    font-size: 20px;
+    color: rgb(73, 73, 73);
 }
 
 /* --- Products Component --- */
@@ -310,6 +317,32 @@ a:active {
     cursor: pointer;
 }
 
+/* Wishlist Page */
+.wishlistWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+}
+.wishlist-list{
+    flex-direction: row;
+    text-align: center;
+
+}
+.wishlist-item{
+    align-items: center;
+    justify-content: center;
+
+}
+.wishCoverImg{
+    height: 250px;
+    width: 200px;
+}
+.wishImg{
+    height: 225px;
+    width: auto;
+} 
+
 /* --- Account Component--- */
 /* Login Page */
 .login-page {
@@ -437,6 +470,8 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    color: black;
 }
 
 .remove-button svg {

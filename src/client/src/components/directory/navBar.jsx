@@ -3,9 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { clearToken } from "../../api/sliceAuth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faShoppingCart, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
+ 
 export default function NavBar() {
  const token = useSelector((state) => state.auth.token);
  const cartItems = useSelector((state) => state.cart.items);
@@ -37,6 +36,11 @@ export default function NavBar() {
       <li>
         <NavLink className="nlB" to="/">
           Products
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/wishlist">
+          <FontAwesomeIcon icon={faHeart} className='wishlist-icon'/>
         </NavLink>
       </li>
       <li className="navBarR">

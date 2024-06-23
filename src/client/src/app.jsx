@@ -12,6 +12,7 @@ import Account from "./components/acc/account";
 import Cart from "./components/Cart"; 
 import Blogs from "./components/blogs/blogs";
 import "./index.css";
+import Wishlist from "./components/acc/wishlist";
 
 function App() {
   const [userToken, setUserToken] = useState({});
@@ -38,6 +39,7 @@ function App() {
         <Route path="/auth/me" element={<Account token= {userToken} />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
     </div>
   );
